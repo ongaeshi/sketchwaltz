@@ -145,6 +145,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)\mruby\include;$(ProjectDir)\mruby\mrbgems\mruby-compiler\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,6 +177,37 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
+    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
+    <ClCompile Include="mruby\src\array.c" />
+    <ClCompile Include="mruby\src\backtrace.c" />
+    <ClCompile Include="mruby\src\class.c" />
+    <ClCompile Include="mruby\src\codedump.c" />
+    <ClCompile Include="mruby\src\compar.c" />
+    <ClCompile Include="mruby\src\crc.c" />
+    <ClCompile Include="mruby\src\debug.c" />
+    <ClCompile Include="mruby\src\dump.c" />
+    <ClCompile Include="mruby\src\enum.c" />
+    <ClCompile Include="mruby\src\error.c" />
+    <ClCompile Include="mruby\src\etc.c" />
+    <ClCompile Include="mruby\src\fmt_fp.c" />
+    <ClCompile Include="mruby\src\gc.c" />
+    <ClCompile Include="mruby\src\hash.c" />
+    <ClCompile Include="mruby\src\init.c" />
+    <ClCompile Include="mruby\src\kernel.c" />
+    <ClCompile Include="mruby\src\load.c" />
+    <ClCompile Include="mruby\src\numeric.c" />
+    <ClCompile Include="mruby\src\object.c" />
+    <ClCompile Include="mruby\src\pool.c" />
+    <ClCompile Include="mruby\src\print.c" />
+    <ClCompile Include="mruby\src\proc.c" />
+    <ClCompile Include="mruby\src\range.c" />
+    <ClCompile Include="mruby\src\state.c" />
+    <ClCompile Include="mruby\src\string.c" />
+    <ClCompile Include="mruby\src\symbol.c" />
+    <ClCompile Include="mruby\src\variable.c" />
+    <ClCompile Include="mruby\src\version.c" />
+    <ClCompile Include="mruby\src\vm.c" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="engine\texture\box-shadow\128.png" />
@@ -219,6 +251,41 @@
     <None Include="example\empty.bin" />
     <None Include="example\test.ini" />
     <None Include="example\test.json" />
+    <None Include="mruby\mrbgems\mruby-compiler\core\lex.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mruby\include\mrbconf.h" />
+    <ClInclude Include="mruby\include\mruby.h" />
+    <ClInclude Include="mruby\include\mruby\array.h" />
+    <ClInclude Include="mruby\include\mruby\boxing_nan.h" />
+    <ClInclude Include="mruby\include\mruby\boxing_no.h" />
+    <ClInclude Include="mruby\include\mruby\boxing_word.h" />
+    <ClInclude Include="mruby\include\mruby\class.h" />
+    <ClInclude Include="mruby\include\mruby\common.h" />
+    <ClInclude Include="mruby\include\mruby\compile.h" />
+    <ClInclude Include="mruby\include\mruby\data.h" />
+    <ClInclude Include="mruby\include\mruby\debug.h" />
+    <ClInclude Include="mruby\include\mruby\dump.h" />
+    <ClInclude Include="mruby\include\mruby\error.h" />
+    <ClInclude Include="mruby\include\mruby\gc.h" />
+    <ClInclude Include="mruby\include\mruby\hash.h" />
+    <ClInclude Include="mruby\include\mruby\irep.h" />
+    <ClInclude Include="mruby\include\mruby\khash.h" />
+    <ClInclude Include="mruby\include\mruby\numeric.h" />
+    <ClInclude Include="mruby\include\mruby\object.h" />
+    <ClInclude Include="mruby\include\mruby\opcode.h" />
+    <ClInclude Include="mruby\include\mruby\proc.h" />
+    <ClInclude Include="mruby\include\mruby\range.h" />
+    <ClInclude Include="mruby\include\mruby\re.h" />
+    <ClInclude Include="mruby\include\mruby\string.h" />
+    <ClInclude Include="mruby\include\mruby\throw.h" />
+    <ClInclude Include="mruby\include\mruby\value.h" />
+    <ClInclude Include="mruby\include\mruby\variable.h" />
+    <ClInclude Include="mruby\include\mruby\version.h" />
+    <ClInclude Include="mruby\mrbgems\mruby-compiler\core\node.h" />
+    <ClInclude Include="mruby\src\error.h" />
+    <ClInclude Include="mruby\src\opcode.h" />
+    <ClInclude Include="mruby\src\value_array.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

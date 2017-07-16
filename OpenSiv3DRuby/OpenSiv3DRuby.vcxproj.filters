@@ -40,10 +40,106 @@
     <Filter Include="Resource Files\engine\font\noto">
       <UniqueIdentifier>{f7208394-61be-44c0-9992-57a2a749ba60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\mruby">
+      <UniqueIdentifier>{8802c093-5201-49ba-b7bb-29120f066063}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\array.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\backtrace.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\class.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\codedump.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\compar.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\crc.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\debug.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\dump.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\enum.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\error.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\etc.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\fmt_fp.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\gc.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\hash.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\init.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\kernel.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\load.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\numeric.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\object.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\pool.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\print.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\proc.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\range.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\state.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\string.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\symbol.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\variable.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\version.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\src\vm.c">
+      <Filter>Source Files\mruby</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,5 +254,106 @@
     <None Include="engine\font\noto\NotoEmoji-Regular.ttf.zst">
       <Filter>Resource Files\engine\font\noto</Filter>
     </None>
+    <None Include="mruby\mrbgems\mruby-compiler\core\lex.def">
+      <Filter>Source Files\mruby</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mruby\include\mrbconf.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\array.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\boxing_nan.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\boxing_no.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\boxing_word.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\class.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\common.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\compile.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\data.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\debug.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\dump.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\error.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\gc.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\hash.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\irep.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\khash.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\numeric.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\object.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\opcode.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\proc.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\range.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\re.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\string.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\throw.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\value.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\variable.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby\version.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\include\mruby.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\mrbgems\mruby-compiler\core\node.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\src\error.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\src\opcode.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="mruby\src\value_array.h">
+      <Filter>Source Files\mruby</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
