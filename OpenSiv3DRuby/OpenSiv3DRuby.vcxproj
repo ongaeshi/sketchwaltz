@@ -180,6 +180,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MrbDrawableText.cpp" />
+    <ClCompile Include="MrbFont.cpp" />
+    <ClCompile Include="MrbMisc.cpp" />
+    <ClCompile Include="MrbPoint.cpp" />
+    <ClCompile Include="mrb_circle.cpp" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
     <ClCompile Include="mruby\src\array.c" />
@@ -257,6 +262,10 @@
     <None Include="mruby\mrbgems\mruby-compiler\core\lex.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MrbDrawableText.hpp" />
+    <ClInclude Include="MrbFont.hpp" />
+    <ClInclude Include="MrbMisc.hpp" />
+    <ClInclude Include="MrbPoint.hpp" />
     <ClInclude Include="mruby\include\mrbconf.h" />
     <ClInclude Include="mruby\include\mruby.h" />
     <ClInclude Include="mruby\include\mruby\array.h" />

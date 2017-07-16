@@ -1,21 +1,30 @@
-﻿# include <Siv3D.hpp> // OpenSiv3D v0.1.5
+﻿#include <Siv3D.hpp>
+// #include "MrbCircle.hpp"
+#include "MrbDrawableText.hpp"
+#include "MrbFont.hpp"
+#include "MrbMisc.hpp"
+#include "MrbPoint.hpp"
+#include "mruby.h"
+#include "mruby/compile.h"
+
+extern void mrb_siv3druby_circle_init(mrb_state *mrb);
 
 void Main()
 {
-	Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
+    mrb_state* mrb = mrb_open();
 
-	const Font font(50);
+    mrb_siv3druby_circle_init(mrb);
+    siv3druby::MrbDrawableText::Init(mrb);
+    siv3druby::MrbFont::Init(mrb);
+    siv3druby::MrbMisc::Init(mrb);
+    siv3druby::MrbPoint::Init(mrb);
 
-	const Texture textureCat(Emoji(L"🐈"), TextureDesc::Mipped);
+    FILE* fp;
+    fopen_s(&fp, "main.rb", "r");
+    {
+        mrb_value ret = mrb_load_file(mrb, fp);
+    }
+    fclose(fp);
 
-	while (System::Update())
-	{
-		font(L"Hello, Siv3D!🐣").drawAt(Window::Center(), Palette::Black);
-
-		font(Cursor::Pos()).draw(20, 400, ColorF(0.6));
-
-		textureCat.resize(80).draw(540, 380);
-
-		Circle(Cursor::Pos(), 60).draw(ColorF(1, 0, 0, 0.5));
-	}
+    mrb_close(mrb);
 }

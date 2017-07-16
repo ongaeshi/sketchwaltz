@@ -141,6 +141,21 @@
     <ClCompile Include="mruby\src\vm.c">
       <Filter>Source Files\mruby</Filter>
     </ClCompile>
+    <ClCompile Include="MrbDrawableText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MrbFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MrbMisc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MrbPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mrb_circle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -354,6 +369,18 @@
     </ClInclude>
     <ClInclude Include="mruby\src\value_array.h">
       <Filter>Source Files\mruby</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbDrawableText.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbFont.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbMisc.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbPoint.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
