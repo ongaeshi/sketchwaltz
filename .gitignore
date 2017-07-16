@@ -289,4 +289,6 @@ __pycache__/
 
 # Siv3D
 *_log.html
+[Dd]ebug-*/
+[Rr]elease-*/
 
