@@ -1,11 +1,10 @@
 # coding: utf-8
-color = ColorF.new(0.8, 0.9, 1.0, 1.0)
+Graphics.set_background(ColorF.new(0.8, 0.9, 1.0))
 
-Graphics.set_background
 font = Font.new(50)
 
 while System.update do
-  Circle.new(Cursor.pos, 100).draw
+  Circle.new(Cursor.pos, 60).draw
   font["Hello, Siv3D!🐣🐳👹👺"].draw
 end
 

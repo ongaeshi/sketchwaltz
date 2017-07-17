@@ -1,5 +1,6 @@
 #include "MrbMisc.hpp"
 
+#include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
 #include "mruby.h"
 #include "mruby/irep.h"
@@ -35,7 +36,10 @@ static mrb_value cursor_pos(mrb_state *mrb, mrb_value self)
 
 static mrb_value set_background(mrb_state *mrb, mrb_value self)
 {
-    Graphics::SetBackground(ColorF(0.8, 0.9, 1.0));
+    mrb_value color;
+    mrb_get_args(mrb, "o", &color);
+
+    Graphics::SetBackground(*siv3druby::MrbColorF::ToCpp(mrb, color));
     return mrb_nil_value();
 }
 }
