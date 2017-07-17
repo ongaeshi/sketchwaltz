@@ -156,6 +156,9 @@
     <ClCompile Include="mrb_circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbColorF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -380,6 +383,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbPoint.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbColorF.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

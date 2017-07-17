@@ -180,6 +180,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MrbColorF.cpp" />
     <ClCompile Include="MrbDrawableText.cpp" />
     <ClCompile Include="MrbFont.cpp" />
     <ClCompile Include="MrbMisc.cpp" />
@@ -262,6 +263,7 @@
     <None Include="mruby\mrbgems\mruby-compiler\core\lex.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MrbColorF.hpp" />
     <ClInclude Include="MrbDrawableText.hpp" />
     <ClInclude Include="MrbFont.hpp" />
     <ClInclude Include="MrbMisc.hpp" />

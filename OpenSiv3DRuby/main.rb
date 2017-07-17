@@ -1,4 +1,6 @@
 # coding: utf-8
+color = ColorF.new(0.8, 0.9, 1.0, 1.0)
+
 Graphics.set_background
 font = Font.new(50)
 
