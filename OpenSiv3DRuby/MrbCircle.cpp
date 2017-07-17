@@ -1,5 +1,6 @@
 #include "MrbCircle.hpp"
 
+#include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
 #include "mruby/array.h"
 #include "mruby/class.h"
@@ -37,7 +38,19 @@ mrb_value initialize(mrb_state *mrb, mrb_value self)
 
 mrb_value draw(mrb_state *mrb, mrb_value self)
 {
-    toCpp(self).draw();
+    mrb_value color;
+    int argc = mrb_get_args(mrb, "|o", &color);
+
+    switch (argc)
+    {
+        case 1:
+            toCpp(self).draw(*siv3druby::MrbColorF::ToCpp(mrb, color));
+            break;
+        default:
+            toCpp(self).draw();
+            break;
+    }
+
     return mrb_nil_value();
 }
 
@@ -49,7 +62,7 @@ void MrbCircle::Init(mrb_state* mrb)
     struct RClass *cc = mrb_define_class(mrb, "Circle", mrb->object_class);
 
     mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(2));
-    mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_NONE());
+    mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(1));
 }
 
 //----------------------------------------------------------
