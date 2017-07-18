@@ -20,7 +20,7 @@ void free(mrb_state *mrb, void *p)
     }
 }
 
-struct mrb_data_type data_type = { "siv3d_point", free };
+struct mrb_data_type data_type = { "siv3d_colorf", free };
 
 mrb_value initialize(mrb_state *mrb, mrb_value self)
 {
