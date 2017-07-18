@@ -2,6 +2,7 @@
 
 #include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
+#include "MrbVec2.hpp"
 #include "mruby.h"
 #include "mruby/irep.h"
 #include "mruby/string.h"
@@ -42,6 +43,11 @@ static mrb_value set_background(mrb_state *mrb, mrb_value self)
     Graphics::SetBackground(*siv3druby::MrbColorF::ToCpp(mrb, color));
     return mrb_nil_value();
 }
+
+static mrb_value center(mrb_state *mrb, mrb_value self)
+{
+    return MrbVec2::ToMrb(mrb, new Vec2(Window::Center()));
+}
 }
 
 //----------------------------------------------------------
@@ -69,6 +75,12 @@ void MrbMisc::Init(mrb_state* mrb)
         struct RClass *cc = mrb_define_module(mrb, "Graphics");
 
         mrb_define_class_method(mrb, cc, "set_background", set_background, MRB_ARGS_NONE());
+    }
+
+    {
+        struct RClass *cc = mrb_define_module(mrb, "Window");
+
+        mrb_define_class_method(mrb, cc, "center", center, MRB_ARGS_NONE());
     }
 }
 

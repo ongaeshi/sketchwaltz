@@ -9,7 +9,7 @@ font = Font.new(50)
 
 while System.update do
   Circle.new(Cursor.pos, 60).draw(ColorF.new(1, 0, 0, 0.5))
-  font["Hello, Siv3D!🐣"].draw_at(Vec2.new(0, 0), Palette::Black)
+  font["Hello, Siv3D!🐣"].draw_at(Window.center, Palette::Black)
 end
 
 # Goal
