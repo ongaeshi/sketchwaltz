@@ -5,6 +5,7 @@
 #include "MrbFont.hpp"
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
+#include "MrbVec2.hpp"
 #include "mruby.h"
 #include "mruby/compile.h"
 
@@ -18,6 +19,7 @@ void Main()
     siv3druby::MrbFont::Init(mrb);
     siv3druby::MrbMisc::Init(mrb);
     siv3druby::MrbPoint::Init(mrb);
+    siv3druby::MrbVec2::Init(mrb);
 
     FILE* fp;
     fopen_s(&fp, "main.rb", "r");
