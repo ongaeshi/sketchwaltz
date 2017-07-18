@@ -50,6 +50,32 @@ mrb_value draw(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
 }
 
+mrb_value draw_at(mrb_state *mrb, mrb_value self)
+{
+    mrb_value pos, color;
+    int argc = mrb_get_args(mrb, "|oo", &pos, &color);
+
+    switch (argc)
+    {
+        case 2:
+            toCpp(self).drawAt(
+                *MrbVec2::ToCpp(mrb, pos),
+                *MrbColorF::ToCpp(mrb, color)
+                );
+            break;
+        case 1:
+            toCpp(self).drawAt(
+                *MrbVec2::ToCpp(mrb, pos)
+                );
+            break;
+        default:
+            toCpp(self).drawAt();
+            break;
+    }
+
+    return mrb_nil_value();
+}
+
 }
 
 //----------------------------------------------------------
@@ -58,6 +84,7 @@ void MrbDrawableText::Init(mrb_state* mrb)
     struct RClass *cc = mrb_define_class(mrb, "DrawableText", mrb->object_class);
 
     mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(2));
+    mrb_define_method(mrb, cc, "draw_at", draw_at, MRB_ARGS_OPT(2));
 }
 
 //----------------------------------------------------------
