@@ -162,6 +162,9 @@
     <ClCompile Include="MrbVec2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mruby\src\mrblib.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">

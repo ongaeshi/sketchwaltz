@@ -206,6 +206,7 @@
     <ClCompile Include="mruby\src\init.c" />
     <ClCompile Include="mruby\src\kernel.c" />
     <ClCompile Include="mruby\src\load.c" />
+    <ClCompile Include="mruby\src\mrblib.c" />
     <ClCompile Include="mruby\src\numeric.c" />
     <ClCompile Include="mruby\src\object.c" />
     <ClCompile Include="mruby\src\pool.c" />
