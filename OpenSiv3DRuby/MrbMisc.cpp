@@ -27,11 +27,7 @@ static mrb_value wait_key(mrb_state *mrb, mrb_value self)
 
 static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
-	if (!mrb->exc) {
 		return mrb_bool_value(System::Update());
-	} else {
-		return mrb_bool_value(false);
-	}
 }
 
 static mrb_value cursor_pos(mrb_state *mrb, mrb_value self)
