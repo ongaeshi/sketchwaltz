@@ -47,5 +47,5 @@ mrb_init_core(mrb_state *mrb)
   mrb_init_range(mrb); DONE;
   mrb_init_gc(mrb); DONE;
   mrb_init_version(mrb); DONE;
-  //mrb_init_mrblib(mrb); DONE;
+  mrb_init_mrblib(mrb); DONE;
 }
