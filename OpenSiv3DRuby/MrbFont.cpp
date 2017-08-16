@@ -6,7 +6,6 @@
 #include "mruby/data.h"
 #include "mruby/string.h"
 #include "mruby/value.h"
-#include <codecvt>
 
 //----------------------------------------------------------
 namespace siv3druby {
@@ -42,9 +41,7 @@ mrb_value aref(mrb_state *mrb, mrb_value self)
     mrb_get_args(mrb, "S", &str);
 
     auto cstr = mrb_string_value_ptr(mrb, str);
-    //auto dstr = new DrawableString(toCpp(self)(FromUTF8(cstr)));
-	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-	auto dstr = new DrawableText(toCpp(self)(converter.from_bytes(cstr)));
+	auto dstr = new DrawableText(toCpp(self)(CharacterSet::UTF8ToUTF16(cstr)));
     return MrbDrawableText::ToMrb(mrb, dstr);
 }
 }

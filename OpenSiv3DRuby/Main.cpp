@@ -9,7 +9,6 @@
 #include "mruby.h"
 #include "mruby/compile.h"
 #include "mruby/string.h"
-#include <codecvt>
 
 void Main()
 {
@@ -34,8 +33,7 @@ void Main()
 
 			mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
 			const char* cstr = mrb_string_value_ptr(mrb, msg);
-			std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-			Print << converter.from_bytes(cstr);
+            Print << CharacterSet::UTF8ToUTF16(cstr);
 
 			while (System::Update()) {
 			}
