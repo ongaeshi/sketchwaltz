@@ -23,10 +23,11 @@ void Main()
     siv3druby::MrbPoint::Init(mrb);
     siv3druby::MrbVec2::Init(mrb);
 
-    FILE* fp;
-    fopen_s(&fp, "main.rb", "r");
+    TextReader reader(L"main.rb");
+    const String s = reader.readAll();
+
     {
-        mrb_value ret = mrb_load_file(mrb, fp);
+        mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
 
 		if (mrb->exc) {
 			Graphics::SetBackground(Palette::Black);
@@ -40,7 +41,6 @@ void Main()
 			}
 		}
     }
-    fclose(fp);
 
     mrb_close(mrb);
 }
