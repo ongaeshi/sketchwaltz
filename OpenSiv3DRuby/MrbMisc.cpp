@@ -1,5 +1,6 @@
 #include "MrbMisc.hpp"
 
+#include "Main.hpp"
 #include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
 #include "MrbVec2.hpp"
@@ -27,7 +28,11 @@ static mrb_value wait_key(mrb_state *mrb, mrb_value self)
 
 static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
-    return mrb_bool_value(System::Update());
+    if (fSiv3DRubyState.isReload) {
+        return mrb_bool_value(false);
+    } else {
+        return mrb_bool_value(System::Update());
+    }
 }
 
 static mrb_value cursor_pos(mrb_state *mrb, mrb_value self)

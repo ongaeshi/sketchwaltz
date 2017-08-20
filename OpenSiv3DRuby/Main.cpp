@@ -1,4 +1,5 @@
 ﻿#include <Siv3D.hpp>
+#include "Main.hpp"
 #include "MrbCircle.hpp"
 #include "MrbColorF.hpp"
 #include "MrbDrawableText.hpp"
@@ -10,35 +11,73 @@
 #include "mruby/compile.h"
 #include "mruby/string.h"
 
-void Main()
-{
-    mrb_state* mrb = mrb_open();
+namespace siv3druby {
+    Siv3DRubyState fSiv3DRubyState;
 
-    siv3druby::MrbCircle::Init(mrb);
-    siv3druby::MrbColorF::Init(mrb);
-    siv3druby::MrbDrawableText::Init(mrb);
-    siv3druby::MrbFont::Init(mrb);
-    siv3druby::MrbMisc::Init(mrb);
-    siv3druby::MrbPoint::Init(mrb);
-    siv3druby::MrbVec2::Init(mrb);
-
-    TextReader reader(L"main.rb");
-    const String s = reader.readAll();
-
+    void mainLoop()
     {
-        mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
+        mrb_state* mrb = mrb_open();
 
-		if (mrb->exc) {
-			Graphics::SetBackground(Palette::Black);
+        MrbCircle::Init(mrb);
+        MrbColorF::Init(mrb);
+        MrbDrawableText::Init(mrb);
+        MrbFont::Init(mrb);
+        MrbMisc::Init(mrb);
+        MrbPoint::Init(mrb);
+        MrbVec2::Init(mrb);
 
-			mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
-			const char* cstr = mrb_string_value_ptr(mrb, msg);
-            Print << CharacterSet::UTF8ToUTF16(cstr);
+        TextReader reader(L"main.rb");
+        const String s = reader.readAll();
 
-			while (System::Update()) {
-			}
-		}
+        {
+            mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
+
+            if (mrb->exc) {
+                Graphics::SetBackground(Palette::Black);
+
+                mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
+                const char* cstr = mrb_string_value_ptr(mrb, msg);
+                Print << CharacterSet::UTF8ToUTF16(cstr);
+
+                while (System::Update()) {
+                    if (fSiv3DRubyState.isReload) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        mrb_close(mrb);
     }
 
-    mrb_close(mrb);
+    void threadLoop()
+    {
+        while (true) {
+            auto writeTime = FileSystem::WriteTime(L"main.rb");
+
+            if (writeTime > fSiv3DRubyState.lastWriteTime) {
+                fSiv3DRubyState.lastWriteTime = writeTime;
+                fSiv3DRubyState.isReload = true;
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+}
+
+void Main()
+{
+    using namespace siv3druby;
+
+    fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
+
+    std::thread t([&] {
+        threadLoop();
+    });
+    t.detach();
+
+    do {
+        fSiv3DRubyState.isReload = false;
+        mainLoop();
+    } while (fSiv3DRubyState.isReload);
 }
