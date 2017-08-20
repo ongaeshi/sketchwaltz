@@ -12,66 +12,72 @@
 #include "mruby/string.h"
 
 namespace siv3druby {
-Siv3DRubyState fSiv3DRubyState;
+    Siv3DRubyState fSiv3DRubyState;
 
-void mainLoop(mrb_state* mrb)
-{
-    TextReader reader(L"main.rb");
-    const String s = reader.readAll();
-
+    void mainLoop(mrb_state* mrb)
     {
-        mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
+        TextReader reader(L"main.rb");
+        const String s = reader.readAll();
 
-        if (mrb->exc) {
-            Graphics::SetBackground(Palette::Black);
+        {
+            mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
 
-            mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
-            const char* cstr = mrb_string_value_ptr(mrb, msg);
-            Print << CharacterSet::UTF8ToUTF16(cstr);
+            if (mrb->exc) {
+                Graphics::SetBackground(Palette::Black);
 
-            while (System::Update()) {
-                if (fSiv3DRubyState.isReload) {
-                    break;
+                mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
+                const char* cstr = mrb_string_value_ptr(mrb, msg);
+                Print << CharacterSet::UTF8ToUTF16(cstr);
+
+                while (System::Update()) {
+                    if (fSiv3DRubyState.isReload) {
+                        break;
+                    }
                 }
             }
         }
     }
-}
-}
 
-void Main()
-{
-    mrb_state* mrb = mrb_open();
-
-    siv3druby::MrbCircle::Init(mrb);
-    siv3druby::MrbColorF::Init(mrb);
-    siv3druby::MrbDrawableText::Init(mrb);
-    siv3druby::MrbFont::Init(mrb);
-    siv3druby::MrbMisc::Init(mrb);
-    siv3druby::MrbPoint::Init(mrb);
-    siv3druby::MrbVec2::Init(mrb);
-
-    siv3druby::fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
-
-    int x = 0;
-    std::thread t([&] {
+    void threadLoop()
+    {
         while (true) {
             auto writeTime = FileSystem::WriteTime(L"main.rb");
 
-            if (writeTime > siv3druby::fSiv3DRubyState.lastWriteTime) {
-                siv3druby::fSiv3DRubyState.lastWriteTime = writeTime;
-                siv3druby::fSiv3DRubyState.isReload = true;
+            if (writeTime > fSiv3DRubyState.lastWriteTime) {
+                fSiv3DRubyState.lastWriteTime = writeTime;
+                fSiv3DRubyState.isReload = true;
             }
 
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
+    }
+}
+
+void Main()
+{
+    using namespace siv3druby;
+
+    mrb_state* mrb = mrb_open();
+
+    MrbCircle::Init(mrb);
+    MrbColorF::Init(mrb);
+    MrbDrawableText::Init(mrb);
+    MrbFont::Init(mrb);
+    MrbMisc::Init(mrb);
+    MrbPoint::Init(mrb);
+    MrbVec2::Init(mrb);
+
+    fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
+
+    std::thread t([&] {
+        threadLoop();
     });
     t.detach();
 
     do {
-        siv3druby::fSiv3DRubyState.isReload = false;
-        siv3druby::mainLoop(mrb);
-    } while (siv3druby::fSiv3DRubyState.isReload);
+        fSiv3DRubyState.isReload = false;
+        mainLoop(mrb);
+    } while (fSiv3DRubyState.isReload);
 
     mrb_close(mrb);
 }
