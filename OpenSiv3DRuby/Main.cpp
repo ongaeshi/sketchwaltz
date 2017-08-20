@@ -14,8 +14,18 @@
 namespace siv3druby {
     Siv3DRubyState fSiv3DRubyState;
 
-    void mainLoop(mrb_state* mrb)
+    void mainLoop()
     {
+        mrb_state* mrb = mrb_open();
+
+        MrbCircle::Init(mrb);
+        MrbColorF::Init(mrb);
+        MrbDrawableText::Init(mrb);
+        MrbFont::Init(mrb);
+        MrbMisc::Init(mrb);
+        MrbPoint::Init(mrb);
+        MrbVec2::Init(mrb);
+
         TextReader reader(L"main.rb");
         const String s = reader.readAll();
 
@@ -36,6 +46,8 @@ namespace siv3druby {
                 }
             }
         }
+
+        mrb_close(mrb);
     }
 
     void threadLoop()
@@ -57,16 +69,6 @@ void Main()
 {
     using namespace siv3druby;
 
-    mrb_state* mrb = mrb_open();
-
-    MrbCircle::Init(mrb);
-    MrbColorF::Init(mrb);
-    MrbDrawableText::Init(mrb);
-    MrbFont::Init(mrb);
-    MrbMisc::Init(mrb);
-    MrbPoint::Init(mrb);
-    MrbVec2::Init(mrb);
-
     fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
 
     std::thread t([&] {
@@ -76,8 +78,6 @@ void Main()
 
     do {
         fSiv3DRubyState.isReload = false;
-        mainLoop(mrb);
+        mainLoop();
     } while (fSiv3DRubyState.isReload);
-
-    mrb_close(mrb);
 }
