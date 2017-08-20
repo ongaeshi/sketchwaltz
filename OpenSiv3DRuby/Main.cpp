@@ -48,7 +48,18 @@ void Main()
     siv3druby::MrbPoint::Init(mrb);
     siv3druby::MrbVec2::Init(mrb);
 
+    int x = 0;
+    std::thread t([&] {
+        while (true) {
+            //Print << x;
+            ++x;
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    });
+    t.detach();
+
     do {
+        siv3druby::fSiv3DRubyState.isReload = false;
         siv3druby::mainLoop(mrb);
     } while (siv3druby::fSiv3DRubyState.isReload);
 
