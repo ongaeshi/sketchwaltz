@@ -10,6 +10,7 @@ public:
     }
 
     bool isReload;
+    Optional<DateTime> lastWriteTime;
 };
 
 extern Siv3DRubyState fSiv3DRubyState;

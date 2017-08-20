@@ -30,6 +30,9 @@ void mainLoop(mrb_state* mrb)
             Print << CharacterSet::UTF8ToUTF16(cstr);
 
             while (System::Update()) {
+                if (fSiv3DRubyState.isReload) {
+                    break;
+                }
             }
         }
     }
@@ -48,11 +51,18 @@ void Main()
     siv3druby::MrbPoint::Init(mrb);
     siv3druby::MrbVec2::Init(mrb);
 
+    siv3druby::fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
+
     int x = 0;
     std::thread t([&] {
         while (true) {
-            //Print << x;
-            ++x;
+            auto writeTime = FileSystem::WriteTime(L"main.rb");
+
+            if (writeTime > siv3druby::fSiv3DRubyState.lastWriteTime) {
+                siv3druby::fSiv3DRubyState.lastWriteTime = writeTime;
+                siv3druby::fSiv3DRubyState.isReload = true;
+            }
+
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     });
