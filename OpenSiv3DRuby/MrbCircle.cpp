@@ -26,11 +26,10 @@ struct mrb_data_type data_type = { "siv3d_circle", free };
 
 mrb_value initialize(mrb_state *mrb, mrb_value self)
 {
-    mrb_value pos;
-    mrb_int radius;
-    mrb_get_args(mrb, "oi", &pos, &radius);
+    mrb_float x, y, r;
+    mrb_get_args(mrb, "fff", &x, &y, &r);
 
-    Circle* obj = new Circle(*siv3druby::MrbPoint::ToCpp(mrb, pos), radius);
+    Circle* obj = new Circle(x, y, r);
 
     mrb_data_init(self, obj, &data_type);
     return self;
