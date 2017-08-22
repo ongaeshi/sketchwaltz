@@ -2,6 +2,7 @@
 
 #include "MrbColorF.hpp"
 #include "MrbVec2.hpp"
+#include "Util.hpp"
 #include "mruby/array.h"
 #include "mruby/class.h"
 #include "mruby/data.h"
@@ -34,7 +35,7 @@ mrb_value draw(mrb_state *mrb, mrb_value self)
         case 2:
             toCpp(self).draw(
                 *MrbVec2::ToCpp(mrb, pos),
-                *MrbColorF::ToCpp(mrb, color)
+                Util::ToColor(mrb, color)
                 );
             break;
         case 1:
@@ -60,7 +61,7 @@ mrb_value draw_at(mrb_state *mrb, mrb_value self)
         case 2:
             toCpp(self).drawAt(
                 *MrbVec2::ToCpp(mrb, pos),
-                *MrbColorF::ToCpp(mrb, color)
+                Util::ToColor(mrb, color)
                 );
             break;
         case 1:

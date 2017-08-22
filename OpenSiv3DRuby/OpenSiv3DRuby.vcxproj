@@ -219,6 +219,7 @@
     <ClCompile Include="mruby\src\variable.c" />
     <ClCompile Include="mruby\src\version.c" />
     <ClCompile Include="mruby\src\vm.c" />
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="engine\texture\box-shadow\128.png" />
@@ -304,6 +305,7 @@
     <ClInclude Include="mruby\src\error.h" />
     <ClInclude Include="mruby\src\opcode.h" />
     <ClInclude Include="mruby\src\value_array.h" />
+    <ClInclude Include="Util.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

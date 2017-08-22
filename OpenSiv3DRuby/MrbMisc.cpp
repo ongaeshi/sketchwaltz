@@ -1,9 +1,9 @@
 #include "MrbMisc.hpp"
 
 #include "Main.hpp"
-#include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
 #include "MrbVec2.hpp"
+#include "Util.hpp"
 #include "mruby.h"
 #include "mruby/irep.h"
 #include "mruby/string.h"
@@ -45,7 +45,7 @@ static mrb_value set_background(mrb_state *mrb, mrb_value self)
     mrb_value color;
     mrb_get_args(mrb, "o", &color);
 
-    Graphics::SetBackground(*siv3druby::MrbColorF::ToCpp(mrb, color));
+    Graphics::SetBackground(Util::ToColor(mrb, color));
     return mrb_nil_value();
 }
 

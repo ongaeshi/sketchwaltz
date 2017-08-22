@@ -2,6 +2,7 @@
 
 #include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
+#include "Util.hpp"
 #include "mruby/array.h"
 #include "mruby/class.h"
 #include "mruby/data.h"
@@ -43,7 +44,7 @@ mrb_value draw(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 1:
-            toCpp(self).draw(*siv3druby::MrbColorF::ToCpp(mrb, color));
+            toCpp(self).draw(Util::ToColor(mrb, color));
             break;
         default:
             toCpp(self).draw();
