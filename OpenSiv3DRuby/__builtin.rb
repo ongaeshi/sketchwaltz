@@ -1,3 +1,4 @@
+# $ mruby/bin/mrbc.exe -o __builtin.c -B mrb_siv3druby_builtin __builtin.rb
 class Palette
   Black = [ 0,0,0 ]
   Dimgray = [ 105,105,105 ]
