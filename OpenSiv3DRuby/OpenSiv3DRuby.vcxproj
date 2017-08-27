@@ -220,6 +220,7 @@
     <ClCompile Include="mruby\src\version.c" />
     <ClCompile Include="mruby\src\vm.c" />
     <ClCompile Include="Util.cpp" />
+    <ClCompile Include="__builtin.c" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="engine\texture\box-shadow\128.png" />

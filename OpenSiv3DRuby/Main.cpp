@@ -10,14 +10,24 @@
 #include "mruby.h"
 #include "mruby/compile.h"
 #include "mruby/string.h"
+#include "mruby/dump.h"
+
+extern "C" const uint8_t __declspec(align(4)) mrb_siv3druby_builtin[];
 
 namespace siv3druby {
+
     Siv3DRubyState fSiv3DRubyState;
+
+    void loadBuiltin(mrb_state* mrb)
+    {
+        mrb_load_irep(mrb, mrb_siv3druby_builtin);
+    }
 
     void mainLoop()
     {
         mrb_state* mrb = mrb_open();
 
+        loadBuiltin(mrb);
         MrbCircle::Init(mrb);
         MrbColorF::Init(mrb);
         MrbDrawableText::Init(mrb);
