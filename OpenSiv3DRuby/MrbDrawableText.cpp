@@ -27,20 +27,23 @@ struct mrb_data_type data_type = { "siv3d_drawable_string", free };
 
 mrb_value draw(mrb_state *mrb, mrb_value self)
 {
-    mrb_value pos, color;
-    int argc = mrb_get_args(mrb, "|oo", &pos, &color);
+    mrb_float x, y;
+    mrb_value color;
+    int argc = mrb_get_args(mrb, "|ffo", &x, &y, &color);
 
     switch (argc)
     {
-        case 2:
+        case 3:
             toCpp(self).draw(
-                *MrbVec2::ToCpp(mrb, pos),
+                x,
+                y,
                 Util::ToColor(mrb, color)
                 );
             break;
-        case 1:
+        case 2:
             toCpp(self).draw(
-                *MrbVec2::ToCpp(mrb, pos)
+                x,
+                y
                 );
             break;
         default:
@@ -53,20 +56,23 @@ mrb_value draw(mrb_state *mrb, mrb_value self)
 
 mrb_value draw_at(mrb_state *mrb, mrb_value self)
 {
-    mrb_value pos, color;
-    int argc = mrb_get_args(mrb, "|oo", &pos, &color);
+    mrb_float x, y;
+    mrb_value color;
+    int argc = mrb_get_args(mrb, "|ffo", &x, &y, &color);
 
     switch (argc)
     {
-        case 2:
+        case 3:
             toCpp(self).drawAt(
-                *MrbVec2::ToCpp(mrb, pos),
+                x,
+                y,
                 Util::ToColor(mrb, color)
                 );
             break;
-        case 1:
+        case 2:
             toCpp(self).drawAt(
-                *MrbVec2::ToCpp(mrb, pos)
+                x,
+                y
                 );
             break;
         default:
@@ -84,8 +90,8 @@ void MrbDrawableText::Init(mrb_state* mrb)
 {
     struct RClass *cc = mrb_define_class(mrb, "DrawableText", mrb->object_class);
 
-    mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(2));
-    mrb_define_method(mrb, cc, "draw_at", draw_at, MRB_ARGS_OPT(2));
+    mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(3));
+    mrb_define_method(mrb, cc, "draw_at", draw_at, MRB_ARGS_OPT(3));
 }
 
 //----------------------------------------------------------
