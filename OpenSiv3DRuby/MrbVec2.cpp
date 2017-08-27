@@ -33,6 +33,16 @@ mrb_value initialize(mrb_state *mrb, mrb_value self)
     return self;
 }
 
+mrb_value x(mrb_state *mrb, mrb_value self)
+{
+    return mrb_float_value(mrb, toCpp(self).x);
+}
+
+mrb_value y(mrb_state *mrb, mrb_value self)
+{
+    return mrb_float_value(mrb, toCpp(self).y);
+}
+
 }
 
 //----------------------------------------------------------
@@ -41,6 +51,8 @@ void MrbVec2::Init(mrb_state* mrb)
     struct RClass *cc = mrb_define_class(mrb, "Vec2", mrb->object_class);
 
     mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, cc, "x", x, MRB_ARGS_NONE());
+    mrb_define_method(mrb, cc, "y", y, MRB_ARGS_NONE());
 }
 
 //----------------------------------------------------------
