@@ -12,12 +12,12 @@
 namespace siv3druby {
 
 namespace {
-static mrb_value println(mrb_state *mrb, mrb_value self)
+static mrb_value printstr(mrb_state *mrb, mrb_value self)
 {
     mrb_value str;
     mrb_get_args(mrb, "S", &str);
-    //Println(FromUTF8(mrb_string_value_ptr(mrb, str)));
-    return mrb_nil_value();
+    Print << CharacterSet::UTF8ToUTF16(mrb_string_value_ptr(mrb, str));
+    return str;
 }
 
 static mrb_value wait_key(mrb_state *mrb, mrb_value self)
@@ -60,7 +60,7 @@ void MrbMisc::Init(mrb_state* mrb)
 {
     {
         struct RClass *krn = mrb->kernel_module;
-        mrb_define_method(mrb, krn, "println", println, MRB_ARGS_REQ(1));
+        mrb_define_method(mrb, krn, "__printstr__", printstr, MRB_ARGS_REQ(1));
         mrb_define_method(mrb, krn, "wait_key", wait_key, MRB_ARGS_NONE());
     }
 
