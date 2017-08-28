@@ -171,6 +171,9 @@
     <ClCompile Include="__builtin.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -407,6 +410,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Util.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbTexture.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

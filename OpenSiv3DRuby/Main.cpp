@@ -6,6 +6,7 @@
 #include "MrbFont.hpp"
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
+#include "MrbTexture.hpp"
 #include "MrbVec2.hpp"
 #include "mruby.h"
 #include "mruby/compile.h"
@@ -34,6 +35,7 @@ namespace siv3druby {
         MrbFont::Init(mrb);
         MrbMisc::Init(mrb);
         MrbPoint::Init(mrb);
+        MrbTexture::Init(mrb);
         MrbVec2::Init(mrb);
 
         TextReader reader(L"main.rb");

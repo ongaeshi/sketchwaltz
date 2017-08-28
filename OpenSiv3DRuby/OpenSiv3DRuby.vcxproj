@@ -186,6 +186,7 @@
     <ClCompile Include="MrbFont.cpp" />
     <ClCompile Include="MrbMisc.cpp" />
     <ClCompile Include="MrbPoint.cpp" />
+    <ClCompile Include="MrbTexture.cpp" />
     <ClCompile Include="MrbVec2.cpp" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
@@ -273,6 +274,7 @@
     <ClInclude Include="MrbFont.hpp" />
     <ClInclude Include="MrbMisc.hpp" />
     <ClInclude Include="MrbPoint.hpp" />
+    <ClInclude Include="MrbTexture.hpp" />
     <ClInclude Include="MrbVec2.hpp" />
     <ClInclude Include="mruby\include\mrbconf.h" />
     <ClInclude Include="mruby\include\mruby.h" />
