@@ -30,10 +30,10 @@ module Kernel
     while i < len
       s = args[i].to_s
       __printstr__ s
-      __printstr__ "\n" if (s[-1] != "\n")
+      # __printstr__ "\n" if (s[-1] != "\n")
       i += 1
     end
-    __printstr__ "\n" if len == 0
+    # __printstr__ "\n" if len == 0
     nil
   end
 
@@ -46,7 +46,7 @@ module Kernel
     len = args.size
     while i < len
       __printstr__ args[i].inspect
-      __printstr__ "\n"
+      # __printstr__ "\n"
       i += 1
     end
     args[0]
