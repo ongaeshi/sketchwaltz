@@ -20,9 +20,9 @@ static mrb_value printstr(mrb_state *mrb, mrb_value self)
     return str;
 }
 
-static mrb_value wait_key(mrb_state *mrb, mrb_value self)
+static mrb_value clear(mrb_state *mrb, mrb_value self)
 {
-    //WaitKey();
+    ClearPrint();
     return mrb_nil_value();
 }
 
@@ -61,7 +61,7 @@ void MrbMisc::Init(mrb_state* mrb)
     {
         struct RClass *krn = mrb->kernel_module;
         mrb_define_method(mrb, krn, "__printstr__", printstr, MRB_ARGS_REQ(1));
-        mrb_define_method(mrb, krn, "wait_key", wait_key, MRB_ARGS_NONE());
+        mrb_define_method(mrb, krn, "clear", clear, MRB_ARGS_NONE());
     }
 
     {
