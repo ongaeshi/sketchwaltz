@@ -16,7 +16,7 @@ static mrb_value printstr(mrb_state *mrb, mrb_value self)
 {
     mrb_value str;
     mrb_get_args(mrb, "S", &str);
-    Print << CharacterSet::UTF8ToUTF16(mrb_string_value_ptr(mrb, str));
+    Print << CharacterSet::FromUTF8(mrb_string_value_ptr(mrb, str));
     return str;
 }
 

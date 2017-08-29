@@ -41,7 +41,7 @@ mrb_value aref(mrb_state *mrb, mrb_value self)
     mrb_get_args(mrb, "S", &str);
 
     auto cstr = mrb_string_value_ptr(mrb, str);
-	auto dstr = new DrawableText(toCpp(self)(CharacterSet::UTF8ToUTF16(cstr)));
+    auto dstr = new DrawableText(toCpp(self)(CharacterSet::FromUTF8(cstr)));
     return MrbDrawableText::ToMrb(mrb, dstr);
 }
 }

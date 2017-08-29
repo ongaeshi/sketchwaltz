@@ -49,7 +49,7 @@ namespace siv3druby {
 
                 mrb_value msg = mrb_funcall(mrb, mrb_obj_value(mrb->exc), "inspect", 0);
                 const char* cstr = mrb_string_value_ptr(mrb, msg);
-                Print << CharacterSet::UTF8ToUTF16(cstr);
+                Print << CharacterSet::FromUTF8(cstr);
 
                 while (System::Update()) {
                     if (fSiv3DRubyState.isReload) {
