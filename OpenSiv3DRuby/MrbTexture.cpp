@@ -6,6 +6,7 @@
 #include "mruby/array.h"
 #include "mruby/class.h"
 #include "mruby/data.h"
+#include "mruby/string.h"
 #include "mruby/value.h"
 
 //----------------------------------------------------------
@@ -27,10 +28,16 @@ struct mrb_data_type data_type = { "siv3d_texture", free };
 
 mrb_value initialize(mrb_state *mrb, mrb_value self)
 {
-    // mrb_float x, y, r;
-    // mrb_get_args(mrb, "fff", &x, &y, &r);
+    mrb_value src;
+    mrb_get_args(mrb, "o", &src);
 
-    Texture* obj = new Texture(L"test.png");
+    Texture* obj;
+
+    if (mrb_string_p(src)) {
+        obj = new Texture(CharacterSet::FromUTF8(mrb_string_value_ptr(mrb, src)));
+    } else {
+        mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
+    }
 
     mrb_data_init(self, obj, &data_type);
     return self;
@@ -65,7 +72,7 @@ void MrbTexture::Init(mrb_state* mrb)
 {
     struct RClass *cc = mrb_define_class(mrb, "Texture", mrb->object_class);
 
-    mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_NONE());
+    mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(1));
     mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(3));
 }
 

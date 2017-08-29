@@ -2,7 +2,7 @@
 Graphics.set_background([204, 230, 255])
 
 font = Font.new(50)
-cat = Texture.new()
+cat = Texture.new("test.png")
 
 while System.update do
   c = Cursor.pos
