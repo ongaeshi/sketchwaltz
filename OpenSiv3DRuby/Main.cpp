@@ -7,6 +7,7 @@
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
 #include "MrbTexture.hpp"
+#include "MrbTextureRegion.hpp"
 #include "MrbVec2.hpp"
 #include "mruby.h"
 #include "mruby/compile.h"
@@ -36,6 +37,7 @@ namespace siv3druby {
         MrbMisc::Init(mrb);
         MrbPoint::Init(mrb);
         MrbTexture::Init(mrb);
+        MrbTextureRegion::Init(mrb);
         MrbVec2::Init(mrb);
 
         TextReader reader(L"main.rb");

@@ -2,6 +2,7 @@
 
 #include "MrbColorF.hpp"
 #include "MrbPoint.hpp"
+#include "MrbTextureRegion.hpp"
 #include "Util.hpp"
 #include "mruby/array.h"
 #include "mruby/class.h"
@@ -65,6 +66,28 @@ mrb_value draw(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
 }
 
+mrb_value resize(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y;
+    int argc = mrb_get_args(mrb, "ff", &x, &y);
+
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(toCpp(self).resize(x, y))
+    );
+}
+
+mrb_value scale(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y;
+    int argc = mrb_get_args(mrb, "ff", &x, &y);
+
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(toCpp(self).scale(x, y))
+        );
+}
+
 }
 
 //----------------------------------------------------------
@@ -74,6 +97,8 @@ void MrbTexture::Init(mrb_state* mrb)
 
     mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(1));
     mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(3));
+    mrb_define_method(mrb, cc, "resize", resize, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, cc, "scale", scale, MRB_ARGS_REQ(2));
 }
 
 //----------------------------------------------------------

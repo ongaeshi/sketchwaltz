@@ -8,7 +8,8 @@ while System.update do
   c = Cursor.pos
   Circle.new(c.x, c.y, 50).draw([255, 0, 0, 128])
   font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
-  cat.draw(c.x, c.y)
+  cat.resize(80, 80).draw(540, 380)
+  cat.scale(0.5, 0.5).draw(0, 0)
 end
 
 # Goal
