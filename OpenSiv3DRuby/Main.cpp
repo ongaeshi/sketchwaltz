@@ -1,6 +1,7 @@
 ﻿#include <Siv3D.hpp>
 #include "Main.hpp"
 #include "MrbCircle.hpp"
+#include "MrbEmoji.hpp"
 #include "MrbColorF.hpp"
 #include "MrbDrawableText.hpp"
 #include "MrbFont.hpp"
@@ -31,6 +32,7 @@ namespace siv3druby {
 
         loadBuiltin(mrb);
         MrbCircle::Init(mrb);
+        MrbEmoji::Init(mrb);
         MrbColorF::Init(mrb);
         MrbDrawableText::Init(mrb);
         MrbFont::Init(mrb);

@@ -1,6 +1,7 @@
 #include "MrbTexture.hpp"
 
 #include "MrbColorF.hpp"
+#include "MrbEmoji.hpp"
 #include "MrbPoint.hpp"
 #include "MrbTextureRegion.hpp"
 #include "Util.hpp"
@@ -36,6 +37,8 @@ mrb_value initialize(mrb_state *mrb, mrb_value self)
 
     if (mrb_string_p(src)) {
         obj = new Texture(CharacterSet::FromUTF8(mrb_string_value_ptr(mrb, src)));
+    } else if (MrbEmoji::IsInstance(mrb, src)) {
+        obj = new Texture(*MrbEmoji::ToCpp(mrb, src));
     } else {
         mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
     }

@@ -183,6 +183,7 @@
     <ClCompile Include="MrbCircle.cpp" />
     <ClCompile Include="MrbColorF.cpp" />
     <ClCompile Include="MrbDrawableText.cpp" />
+    <ClCompile Include="MrbEmoji.cpp" />
     <ClCompile Include="MrbFont.cpp" />
     <ClCompile Include="MrbMisc.cpp" />
     <ClCompile Include="MrbPoint.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="MrbCircle.hpp" />
     <ClInclude Include="MrbColorF.hpp" />
     <ClInclude Include="MrbDrawableText.hpp" />
+    <ClInclude Include="MrbEmoji.hpp" />
     <ClInclude Include="MrbFont.hpp" />
     <ClInclude Include="MrbMisc.hpp" />
     <ClInclude Include="MrbPoint.hpp" />
