@@ -31,14 +31,15 @@ struct mrb_data_type data_type = { "siv3d_texture", free };
 mrb_value initialize(mrb_state *mrb, mrb_value self)
 {
     mrb_value src;
-    mrb_get_args(mrb, "o", &src);
+    mrb_int desc = static_cast<int>(TextureDesc::Unmipped);
+    mrb_get_args(mrb, "o|i", &src, &desc);
 
     Texture* obj;
 
     if (mrb_string_p(src)) {
-        obj = new Texture(CharacterSet::FromUTF8(mrb_string_value_ptr(mrb, src)));
+        obj = new Texture(CharacterSet::FromUTF8(mrb_string_value_ptr(mrb, src)), static_cast<TextureDesc>(desc));
     } else if (MrbEmoji::IsInstance(mrb, src)) {
-        obj = new Texture(*MrbEmoji::ToCpp(mrb, src));
+        obj = new Texture(*MrbEmoji::ToCpp(mrb, src), static_cast<TextureDesc>(desc));
     } else {
         mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
     }
@@ -98,7 +99,7 @@ void MrbTexture::Init(mrb_state* mrb)
 {
     struct RClass *cc = mrb_define_class(mrb, "Texture", mrb->object_class);
 
-    mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(1));
+    mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_ARG(1, 1));
     mrb_define_method(mrb, cc, "draw", draw, MRB_ARGS_OPT(3));
     mrb_define_method(mrb, cc, "resize", resize, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, cc, "scale", scale, MRB_ARGS_REQ(2));

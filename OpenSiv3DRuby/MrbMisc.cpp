@@ -87,6 +87,17 @@ void MrbMisc::Init(mrb_state* mrb)
 
         mrb_define_class_method(mrb, cc, "center", center, MRB_ARGS_NONE());
     }
+
+    {
+        struct RClass *cc = mrb_define_module(mrb, "TextureDesc");
+
+        mrb_define_const(mrb, cc, "Unmipped",  mrb_fixnum_value((int)TextureDesc::Unmipped));
+        mrb_define_const(mrb, cc, "UnmippedSRGB",  mrb_fixnum_value((int)TextureDesc::UnmippedSRGB));
+        mrb_define_const(mrb, cc, "Mipped",  mrb_fixnum_value((int)TextureDesc::Mipped));
+        mrb_define_const(mrb, cc, "MippedSRGB",  mrb_fixnum_value((int)TextureDesc::MippedSRGB));
+        mrb_define_const(mrb, cc, "SDF",  mrb_fixnum_value((int)TextureDesc::SDF));
+        mrb_define_const(mrb, cc, "For3D",  mrb_fixnum_value((int)TextureDesc::For3D));
+    }
 }
 
 }
