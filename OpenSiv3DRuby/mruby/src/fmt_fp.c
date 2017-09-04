@@ -90,6 +90,7 @@ fmt_u(uint32_t x, char *s)
 typedef char compiler_defines_long_double_incorrectly[9-(int)sizeof(long double)];
 #endif
 
+#pragma warning(disable: 4703)
 static int
 fmt_fp(struct fmt_args *f, long double y, int w, int p, int fl, int t)
 {
@@ -326,6 +327,7 @@ fmt_fp(struct fmt_args *f, long double y, int w, int p, int fl, int t)
   pad(f, ' ', w, pl+l, fl^LEFT_ADJ);
 
   return MAX(w, pl+l);
+  #pragma warning(default: 4703)
 }
 
 static int
