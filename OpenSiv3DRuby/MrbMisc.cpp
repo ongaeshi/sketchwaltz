@@ -28,6 +28,15 @@ static mrb_value clear(mrb_state *mrb, mrb_value self)
 
 static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
+    if (DragDrop::HasNewFilePaths()) {
+        const auto items = DragDrop::GetDroppedFilePaths();
+
+        for (const auto& item : items) {
+            fSiv3DRubyState.filePath = item.path;
+            fSiv3DRubyState.isReload = true;
+        }
+    }
+
     if (fSiv3DRubyState.isReload) {
         return mrb_bool_value(false);
     } else {

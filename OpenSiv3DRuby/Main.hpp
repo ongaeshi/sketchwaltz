@@ -5,10 +5,12 @@ namespace siv3druby {
 class Siv3DRubyState {
 public:
     Siv3DRubyState()
-    : isReload(false)
+    : filePath(L"main.rb")
+    , isReload(false)
     {
     }
 
+    FilePath filePath;
     bool isReload;
     Optional<DateTime> lastWriteTime;
 };

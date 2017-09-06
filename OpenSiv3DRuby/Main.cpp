@@ -42,7 +42,7 @@ namespace siv3druby {
         MrbTextureRegion::Init(mrb);
         MrbVec2::Init(mrb);
 
-        TextReader reader(L"main.rb");
+        TextReader reader(fSiv3DRubyState.filePath);
         const String s = reader.readAll();
 
         {
@@ -69,7 +69,7 @@ namespace siv3druby {
     void threadLoop()
     {
         while (true) {
-            auto writeTime = FileSystem::WriteTime(L"main.rb");
+            auto writeTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
 
             if (writeTime > fSiv3DRubyState.lastWriteTime) {
                 fSiv3DRubyState.lastWriteTime = writeTime;
@@ -85,7 +85,7 @@ void Main()
 {
     using namespace siv3druby;
 
-    fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(L"main.rb");
+    fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
 
     std::thread t([&] {
         threadLoop();
