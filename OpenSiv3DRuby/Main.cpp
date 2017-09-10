@@ -93,6 +93,7 @@ void Main()
     t.detach();
 
     do {
+        ClearPrint();
         fSiv3DRubyState.isReload = false;
         mainLoop();
     } while (fSiv3DRubyState.isReload);
