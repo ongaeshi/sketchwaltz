@@ -180,6 +180,9 @@
     <ClCompile Include="MrbEmoji.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -425,6 +428,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbEmoji.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbRect.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbObject.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

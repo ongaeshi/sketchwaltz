@@ -7,6 +7,7 @@
 #include "MrbFont.hpp"
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
+#include "MrbRect.hpp"
 #include "MrbTexture.hpp"
 #include "MrbTextureRegion.hpp"
 #include "MrbVec2.hpp"
@@ -38,6 +39,7 @@ namespace siv3druby {
         MrbFont::Init(mrb);
         MrbMisc::Init(mrb);
         MrbPoint::Init(mrb);
+        MrbRect::Init(mrb);
         MrbTexture::Init(mrb);
         MrbTextureRegion::Init(mrb);
         MrbVec2::Init(mrb);

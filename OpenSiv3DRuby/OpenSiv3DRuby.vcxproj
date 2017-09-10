@@ -187,6 +187,7 @@
     <ClCompile Include="MrbFont.cpp" />
     <ClCompile Include="MrbMisc.cpp" />
     <ClCompile Include="MrbPoint.cpp" />
+    <ClCompile Include="MrbRect.cpp" />
     <ClCompile Include="MrbTexture.cpp" />
     <ClCompile Include="MrbTextureRegion.cpp" />
     <ClCompile Include="MrbVec2.cpp" />
@@ -276,7 +277,9 @@
     <ClInclude Include="MrbEmoji.hpp" />
     <ClInclude Include="MrbFont.hpp" />
     <ClInclude Include="MrbMisc.hpp" />
+    <ClInclude Include="MrbObject.hpp" />
     <ClInclude Include="MrbPoint.hpp" />
+    <ClInclude Include="MrbRect.hpp" />
     <ClInclude Include="MrbTexture.hpp" />
     <ClInclude Include="MrbTextureRegion.hpp" />
     <ClInclude Include="MrbVec2.hpp" />
