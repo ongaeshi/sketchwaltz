@@ -7,7 +7,7 @@ namespace siv3druby {
 
 //----------------------------------------------------------
 class MrbRect
-    : public MrbManager<Rect>
+    : public MrbObject<Rect>
 {
 public:
     static void Init(mrb_state *mrb);

@@ -10,12 +10,12 @@
 
 //----------------------------------------------------------
 namespace siv3druby {
-MrbObject<Rect> MrbRect::fObject;
+MrbObject<Rect>::Inner MrbRect::fInner;
 
 //----------------------------------------------------------
 void MrbRect::Init(mrb_state* mrb)
 {
-    MrbManager::Init(mrb, "Rect");
+    MrbObject::Init(mrb, "Rect");
 
     mrb_define_method(mrb, Cc(), "initialize", Initialize, MRB_ARGS_REQ(4));
     mrb_define_method(mrb, Cc(), "draw", Draw, MRB_ARGS_OPT(1));
@@ -27,7 +27,7 @@ mrb_value MrbRect::Initialize(mrb_state *mrb, mrb_value self)
     mrb_float x, y, w, h;
     mrb_get_args(mrb, "ffff", &x, &y, &w, &h);
 
-    Rect* obj = new Rect(x, y, w, h);
+    auto* obj = new Rect(x, y, w, h);
 
     mrb_data_init(self, obj, MrbRect::DataType());
     return self;
