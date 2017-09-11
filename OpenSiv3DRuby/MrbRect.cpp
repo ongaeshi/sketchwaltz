@@ -1,12 +1,6 @@
 #include "MrbRect.hpp"
 
-#include "MrbColorF.hpp"
-#include "MrbPoint.hpp"
 #include "Util.hpp"
-#include "mruby/array.h"
-#include "mruby/class.h"
-#include "mruby/data.h"
-#include "mruby/value.h"
 
 //----------------------------------------------------------
 namespace siv3druby {
@@ -29,7 +23,7 @@ mrb_value MrbRect::initialize(mrb_state *mrb, mrb_value self)
 
     auto* obj = new Rect(x, y, w, h);
 
-    mrb_data_init(self, obj, MrbRect::DataType());
+    mrb_data_init(self, obj, DataType());
     return self;
 }
 
