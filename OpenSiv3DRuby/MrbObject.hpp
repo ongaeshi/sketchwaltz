@@ -64,13 +64,13 @@ protected:
             return mClass;
         }
 
-        static mrb_value toMrb(mrb_state *mrb, T *ptr)
+        mrb_value toMrb(mrb_state *mrb, T *ptr)
         {
             struct RData *data = mrb_data_object_alloc(mrb, mClass, ptr, &mDataType);
             return mrb_obj_value(data);
         }
 
-        static T* toCpp(mrb_state *mrb, mrb_value value)
+        T* toCpp(mrb_state *mrb, mrb_value value)
         {
             if (!mrb_obj_is_instance_of(mrb, value, mClass)) {
                 mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
