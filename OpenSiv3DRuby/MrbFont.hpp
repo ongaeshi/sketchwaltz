@@ -1,16 +1,17 @@
 #pragma once
 
-#include <Siv3D.hpp>
-#include "mruby.h"
+#include "MrbObject.hpp"
 
 //----------------------------------------------------------
 namespace siv3druby {
-    class MrbFont {
-    public:
-        static void Init(mrb_state *mrb);
-        static mrb_value ToMrb(mrb_state *mrb, Font *ptr);
-        static mrb_value ToMrb(mrb_state *mrb, struct RClass *cc, Font *ptr);
-        static Font* ToCpp(mrb_state *mrb, mrb_value value);
-        static Font* ToCpp(mrb_state *mrb, struct RClass *cc, mrb_value value);
-    };
+class MrbFont
+    : public MrbObject<Font>
+{
+public:
+    static void Init(mrb_state *mrb);
+
+private:
+    static mrb_value initialize(mrb_state *mrb, mrb_value self);
+    static mrb_value aref(mrb_state *mrb, mrb_value self);
+};
 }
