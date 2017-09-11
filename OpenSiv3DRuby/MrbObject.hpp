@@ -2,6 +2,7 @@
 
 #include <Siv3D.hpp>
 #include "mruby.h"
+#include "mruby/class.h"
 #include "mruby/data.h"
 
 //----------------------------------------------------------
@@ -50,8 +51,11 @@ protected:
         void init(mrb_state *mrb, std::string name)
         {
             mName = name;
-            mDataName = "siv3d_" + name;
+
             mClass = mrb_define_class(mrb, mName.c_str(), mrb->object_class);
+            MRB_SET_INSTANCE_TT(mClass, MRB_TT_DATA);
+
+            mDataName = "siv3d_" + mName;
             mDataType = { mDataName.c_str(), free };
         }
 
