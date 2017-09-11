@@ -26,6 +26,21 @@ static mrb_value clear(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
 }
 
+static mrb_value random(mrb_state *mrb, mrb_value self)
+{
+    mrb_float v1, v2;
+    mrb_int argc = mrb_get_args(mrb, "|ff", &v1, &v2);
+
+    switch (argc) {
+        case 2:
+            return mrb_float_value(mrb, Random(v1, v2));
+        case 1:
+            return mrb_float_value(mrb, Random(v1));
+        default:
+            return mrb_float_value(mrb, Random());
+    }
+}
+
 static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
     if (DragDrop::HasNewFilePaths()) {
@@ -71,6 +86,7 @@ void MrbMisc::Init(mrb_state* mrb)
         struct RClass *krn = mrb->kernel_module;
         mrb_define_method(mrb, krn, "__printstr__", printstr, MRB_ARGS_REQ(1));
         mrb_define_method(mrb, krn, "clear", clear, MRB_ARGS_NONE());
+        mrb_define_method(mrb, krn, "random", random, MRB_ARGS_OPT(2));
     }
 
     {
