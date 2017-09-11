@@ -77,6 +77,16 @@ static mrb_value center(mrb_state *mrb, mrb_value self)
 {
     return MrbVec2::ToMrb(mrb, new Vec2(Window::Center()));
 }
+
+static mrb_value width(mrb_state *mrb, mrb_value self)
+{
+    return mrb_fixnum_value(Window::Width());
+}
+
+static mrb_value height(mrb_state *mrb, mrb_value self)
+{
+    return mrb_fixnum_value(Window::Height());
+}
 }
 
 //----------------------------------------------------------
@@ -111,6 +121,8 @@ void MrbMisc::Init(mrb_state* mrb)
         struct RClass *cc = mrb_define_module(mrb, "Window");
 
         mrb_define_class_method(mrb, cc, "center", center, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "width", width, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "height", height, MRB_ARGS_NONE());
     }
 
     {

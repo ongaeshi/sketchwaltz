@@ -8,6 +8,7 @@ vec = Vec2.new(1.5, 2.1)
 p Point, point.x, point.y
 puts "#{Vec2}: (#{vec.x}, #{vec.y})"
 puts "random: #{random}, #{random(10)}, #{random(3, 4)}"
+puts "width: #{Window.width}, height: #{Window.height}"
 
 while System.update do
   c = Cursor.pos

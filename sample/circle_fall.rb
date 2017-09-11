@@ -1,20 +1,21 @@
+# Circle Fall
+# Reference: http://obelisk.hatenablog.com/entry/2017/08/30/010237
+
+Rate = 0.3
+
 Max_r, Min_r = 40, 10
 ColorMax = 255
 MaxNum = 60
-Width = Window.center.x * 2
-Height = Window.center.y * 2
-
-Rate = 0.3
 
 class MyCircle
   def initialize
     renewal
-    @y = random(Height)
+    @y = random(Window.height)
   end
 
   def renewal
     @max_r = random(Max_r - Min_r) + Min_r
-    @x =  random(Width)
+    @x =  random(Window.width)
     @y = -random(@max_r)
     @color = [random(ColorMax), random(ColorMax), random(ColorMax)]
     @fall_step = (1 + random * 3) * Rate
@@ -27,7 +28,7 @@ class MyCircle
     @y += @fall_step
     @r += @r_step
     @r_step *= -1 if @r > @max_r or @r < 1
-    renewal if @y > Height + Max_r
+    renewal if @y > Window.height + Max_r
     true
   end
 end
