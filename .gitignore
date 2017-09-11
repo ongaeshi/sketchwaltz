@@ -292,3 +292,6 @@ __pycache__/
 [Dd]ebug-*/
 [Rr]elease-*/
 
+# sample
+sample/*.exe
+
