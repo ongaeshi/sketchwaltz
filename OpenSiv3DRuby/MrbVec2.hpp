@@ -1,16 +1,18 @@
 #pragma once
 
-#include <Siv3D.hpp>
-#include "mruby.h"
+#include "MrbObject.hpp"
 
 //----------------------------------------------------------
 namespace siv3druby {
-    class MrbVec2 {
-    public:
-        static void Init(mrb_state *mrb);
-        static mrb_value ToMrb(mrb_state *mrb, Vec2 *ptr);
-        static mrb_value ToMrb(mrb_state *mrb, struct RClass *cc, Vec2 *ptr);
-        static Vec2* ToCpp(mrb_state *mrb, mrb_value value);
-        static Vec2* ToCpp(mrb_state *mrb, struct RClass *cc, mrb_value value);
-    };
+class MrbVec2
+    : public MrbObject<Vec2>
+{
+public:
+    static void Init(mrb_state *mrb);
+
+private:
+    static mrb_value initialize(mrb_state *mrb, mrb_value self);
+    static mrb_value x(mrb_state *mrb, mrb_value self);
+    static mrb_value y(mrb_state *mrb, mrb_value self);
+};
 }

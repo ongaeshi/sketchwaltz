@@ -1,94 +1,50 @@
 #include "MrbPoint.hpp"
 
-#include "mruby/array.h"
-#include "mruby/class.h"
-#include "mruby/data.h"
-#include "mruby/value.h"
-
 //----------------------------------------------------------
 namespace siv3druby {
-namespace {
-Point& toCpp(mrb_value self)
+MrbObject<Point>::Inner MrbPoint::fInner;
+
+//----------------------------------------------------------
+void MrbPoint::Init(mrb_state* mrb)
 {
-    return *((Point*)DATA_PTR(self));
+    MrbObject::Init(mrb, "Point");
+
+    mrb_define_method(mrb, Cc(), "initialize", initialize, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, Cc(), "x", x, MRB_ARGS_NONE());
+    mrb_define_method(mrb, Cc(), "y", y, MRB_ARGS_NONE());
+    mrb_define_method(mrb, Cc(), "to_s", to_s, MRB_ARGS_NONE());
 }
 
-void free(mrb_state *mrb, void *p)
-{
-    if (p) {
-        delete ((Point*)p);
-    }
-}
-
-struct mrb_data_type data_type = { "siv3d_point", free };
-
-mrb_value initialize(mrb_state *mrb, mrb_value self)
+//----------------------------------------------------------
+mrb_value MrbPoint::initialize(mrb_state *mrb, mrb_value self)
 {
     mrb_int x, y;
     mrb_get_args(mrb, "ii", &x, &y);
 
     Point* obj = new Point(x, y);
 
-    mrb_data_init(self, obj, &data_type);
+    mrb_data_init(self, obj, DataType());
     return self;
 }
 
-mrb_value x(mrb_state *mrb, mrb_value self)
+//----------------------------------------------------------
+mrb_value MrbPoint::x(mrb_state *mrb, mrb_value self)
 {
-    return mrb_fixnum_value(toCpp(self).x);
+    return mrb_fixnum_value(ToCpp(self).x);
 }
 
-mrb_value y(mrb_state *mrb, mrb_value self)
+//----------------------------------------------------------
+mrb_value MrbPoint::y(mrb_state *mrb, mrb_value self)
 {
-    return mrb_fixnum_value(toCpp(self).y);
+    return mrb_fixnum_value(ToCpp(self).y);
 }
 
-mrb_value to_s(mrb_state *mrb, mrb_value self)
+//----------------------------------------------------------
+mrb_value MrbPoint::to_s(mrb_state *mrb, mrb_value self)
 {
     std::stringstream stream;
-    stream << toCpp(self);
+    stream << ToCpp(self);
     return mrb_str_new_cstr(mrb, stream.str().c_str());
-}
-}
-
-//----------------------------------------------------------
-void MrbPoint::Init(mrb_state* mrb)
-{
-    struct RClass *cc = mrb_define_class(mrb, "Point", mrb->object_class);
-
-    mrb_define_method(mrb, cc, "initialize", initialize, MRB_ARGS_REQ(2));
-    mrb_define_method(mrb, cc, "x", x, MRB_ARGS_NONE());
-    mrb_define_method(mrb, cc, "y", y, MRB_ARGS_NONE());
-    mrb_define_method(mrb, cc, "to_s", to_s, MRB_ARGS_NONE());
-}
-
-//----------------------------------------------------------
-mrb_value MrbPoint::ToMrb(mrb_state *mrb, Point *ptr)
-{
-    return ToMrb(mrb, mrb_class_get(mrb, "Point"), ptr);
-}
-
-//----------------------------------------------------------
-mrb_value MrbPoint::ToMrb(mrb_state *mrb, struct RClass *cc, Point *ptr)
-{
-    struct RData *data = mrb_data_object_alloc(mrb, cc, ptr, &data_type);
-    return mrb_obj_value(data);
-}
-
-//----------------------------------------------------------
-Point* MrbPoint::ToCpp(mrb_state *mrb, mrb_value value)
-{
-    return ToCpp(mrb, mrb_class_get(mrb, "Point"), value);
-}
-
-//----------------------------------------------------------
-Point* MrbPoint::ToCpp(mrb_state *mrb, struct RClass *cc, mrb_value value)
-{
-    if (!mrb_obj_is_instance_of(mrb, value, cc)) {
-        mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
-    }
-
-    return static_cast<Point*>(DATA_PTR(value));
 }
 
 }

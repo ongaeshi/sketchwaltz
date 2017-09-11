@@ -1,16 +1,19 @@
 #pragma once
 
-#include <Siv3D.hpp>
-#include "mruby.h"
+#include "MrbObject.hpp"
 
 //----------------------------------------------------------
 namespace siv3druby {
-    class MrbTexture {
-    public:
-        static void Init(mrb_state *mrb);
-        static mrb_value ToMrb(mrb_state *mrb, Texture *ptr);
-        static mrb_value ToMrb(mrb_state *mrb, struct RClass *cc, Texture *ptr);
-        static Texture* ToCpp(mrb_state *mrb, mrb_value value);
-        static Texture* ToCpp(mrb_state *mrb, struct RClass *cc, mrb_value value);
-    };
+class MrbTexture
+    : public MrbObject<Texture>
+{
+public:
+    static void Init(mrb_state *mrb);
+
+private:
+    static mrb_value initialize(mrb_state *mrb, mrb_value self);
+    static mrb_value draw(mrb_state *mrb, mrb_value self);
+    static mrb_value resize(mrb_state *mrb, mrb_value self);
+    static mrb_value scale(mrb_state *mrb, mrb_value self);
+};
 }
