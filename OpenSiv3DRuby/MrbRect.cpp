@@ -36,10 +36,10 @@ mrb_value MrbRect::draw(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 1:
-            ToCpp(self).draw(Util::ToColor(mrb, color));
+            Self(self).draw(Util::ToColor(mrb, color));
             break;
         default:
-            ToCpp(self).draw();
+            Self(self).draw();
             break;
     }
 

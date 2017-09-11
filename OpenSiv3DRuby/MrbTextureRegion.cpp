@@ -24,13 +24,13 @@ mrb_value MrbTextureRegion::draw(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 3:
-            ToCpp(self).draw(x, y, Util::ToColor(mrb, color));
+            Self(self).draw(x, y, Util::ToColor(mrb, color));
             break;
         case 2:
-            ToCpp(self).draw(x, y);
+            Self(self).draw(x, y);
             break;
         default:
-            ToCpp(self).draw();
+            Self(self).draw();
             break;
     }
 

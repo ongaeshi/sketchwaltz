@@ -25,20 +25,20 @@ mrb_value MrbDrawableText::draw(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 3:
-            ToCpp(self).draw(
+            Self(self).draw(
                 x,
                 y,
                 Util::ToColor(mrb, color)
                 );
             break;
         case 2:
-            ToCpp(self).draw(
+            Self(self).draw(
                 x,
                 y
                 );
             break;
         default:
-            ToCpp(self).draw();
+            Self(self).draw();
             break;
     }
 
@@ -55,20 +55,20 @@ mrb_value MrbDrawableText::draw_at(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 3:
-            ToCpp(self).drawAt(
+            Self(self).drawAt(
                 x,
                 y,
                 Util::ToColor(mrb, color)
                 );
             break;
         case 2:
-            ToCpp(self).drawAt(
+            Self(self).drawAt(
                 x,
                 y
                 );
             break;
         default:
-            ToCpp(self).drawAt();
+            Self(self).drawAt();
             break;
     }
 

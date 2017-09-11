@@ -51,13 +51,13 @@ mrb_value MrbTexture::draw(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 3:
-            ToCpp(self).draw(x, y, Util::ToColor(mrb, color));
+            Self(self).draw(x, y, Util::ToColor(mrb, color));
             break;
         case 2:
-            ToCpp(self).draw(x, y);
+            Self(self).draw(x, y);
             break;
         default:
-            ToCpp(self).draw();
+            Self(self).draw();
             break;
     }
 
@@ -72,7 +72,7 @@ mrb_value MrbTexture::resize(mrb_state *mrb, mrb_value self)
 
     return MrbTextureRegion::ToMrb(
         mrb,
-        new TextureRegion(ToCpp(self).resize(x, y))
+        new TextureRegion(Self(self).resize(x, y))
     );
 }
 
@@ -84,7 +84,7 @@ mrb_value MrbTexture::scale(mrb_state *mrb, mrb_value self)
 
     return MrbTextureRegion::ToMrb(
         mrb,
-        new TextureRegion(ToCpp(self).scale(x, y))
+        new TextureRegion(Self(self).scale(x, y))
         );
 }
 

@@ -29,13 +29,13 @@ mrb_value MrbVec2::initialize(mrb_state *mrb, mrb_value self)
 //----------------------------------------------------------
 mrb_value MrbVec2::x(mrb_state *mrb, mrb_value self)
 {
-    return mrb_float_value(mrb, ToCpp(self).x);
+    return mrb_float_value(mrb, Self(self).x);
 }
 
 //----------------------------------------------------------
 mrb_value MrbVec2::y(mrb_state *mrb, mrb_value self)
 {
-    return mrb_float_value(mrb, ToCpp(self).y);
+    return mrb_float_value(mrb, Self(self).y);
 }
 
 }

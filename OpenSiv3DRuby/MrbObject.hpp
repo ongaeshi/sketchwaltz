@@ -40,9 +40,9 @@ public:
     }
 
 protected:
-    static T& ToCpp(mrb_value value)
+    static T& Self(mrb_value value)
     {
-        return fInner.toCpp(value);
+        return fInner.self(value);
     }
 
     class Inner
@@ -79,7 +79,7 @@ protected:
             return static_cast<T*>(DATA_PTR(value));
         }
 
-        T& toCpp(mrb_value value)
+        T& self(mrb_value value)
         {
             return *((T*)DATA_PTR(value));
         }
