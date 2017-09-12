@@ -39,11 +39,6 @@ public:
         return fInner.toCpp(mrb, value);
     }
 
-    static struct mrb_data_type* DataType()
-    {
-        return fInner.dataType();
-    }
-
     static bool IsInstance(mrb_state *mrb, mrb_value value)
     {
         return fInner.isInstance(mrb, value);
