@@ -21,9 +21,7 @@ mrb_value MrbCircle::initialize(mrb_state *mrb, mrb_value self)
     mrb_float x, y, r;
     mrb_get_args(mrb, "fff", &x, &y, &r);
 
-    Circle* obj = new Circle(x, y, r);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new Circle(x, y, r));
     return self;
 }
 

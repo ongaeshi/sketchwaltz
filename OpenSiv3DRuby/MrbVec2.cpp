@@ -20,9 +20,7 @@ mrb_value MrbVec2::initialize(mrb_state *mrb, mrb_value self)
     mrb_float x, y;
     mrb_get_args(mrb, "ff", &x, &y);
 
-    Vec2* obj = new Vec2(x, y);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new Vec2(x, y));
     return self;
 }
 

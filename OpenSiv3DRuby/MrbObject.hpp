@@ -24,6 +24,11 @@ public:
         return fInner.cc();
     }
 
+    static void Initialize(mrb_value self, T *ptr)
+    {
+        fInner.initialize(self, ptr);
+    }
+
     static mrb_value ToMrb(mrb_state *mrb, T *ptr)
     {
         return fInner.toMrb(mrb, ptr);
@@ -67,6 +72,11 @@ protected:
         struct RClass* cc()
         {
             return mClass;
+        }
+
+        void initialize(mrb_value self, T *ptr)
+        {
+            mrb_data_init(self, ptr, dataType());
         }
 
         mrb_value toMrb(mrb_state *mrb, T *ptr)

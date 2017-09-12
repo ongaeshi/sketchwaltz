@@ -21,9 +21,7 @@ mrb_value MrbRect::initialize(mrb_state *mrb, mrb_value self)
     mrb_float x, y, w, h;
     mrb_get_args(mrb, "ffff", &x, &y, &w, &h);
 
-    auto* obj = new Rect(x, y, w, h);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new Rect(x, y, w, h));
     return self;
 }
 

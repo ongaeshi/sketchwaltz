@@ -22,9 +22,7 @@ mrb_value MrbFont::initialize(mrb_state *mrb, mrb_value self)
     mrb_int size;
     mrb_get_args(mrb, "i", &size);
 
-    Font* obj = new Font(size);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new Font(size));
     return self;
 }
 

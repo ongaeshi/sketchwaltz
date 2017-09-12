@@ -29,7 +29,7 @@ mrb_value MrbEmoji::initialize(mrb_state *mrb, mrb_value self)
         mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
     }
 
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, obj);
     return self;
 }
 

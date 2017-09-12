@@ -18,9 +18,7 @@ mrb_value MrbColorF::initialize(mrb_state *mrb, mrb_value self)
     mrb_float r, g, b, a = 1.0;
     mrb_get_args(mrb, "fff|f", &r, &g, &b, &a);
 
-    ColorF* obj = new ColorF(r, g, b, a);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new ColorF(r, g, b, a));
     return self;
 }
 

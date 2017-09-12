@@ -21,9 +21,7 @@ mrb_value MrbPoint::initialize(mrb_state *mrb, mrb_value self)
     mrb_int x, y;
     mrb_get_args(mrb, "ii", &x, &y);
 
-    Point* obj = new Point(x, y);
-
-    mrb_data_init(self, obj, DataType());
+    Initialize(self, new Point(x, y));
     return self;
 }
 
