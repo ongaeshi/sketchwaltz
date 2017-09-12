@@ -16,12 +16,6 @@ void MrbEmoji::Init(mrb_state* mrb)
 }
 
 //----------------------------------------------------------
-bool MrbEmoji::IsInstance(mrb_state *mrb, mrb_value value)
-{
-    return mrb_obj_is_instance_of(mrb, value, mrb_class_get(mrb, "Emoji"));
-}
-
-//----------------------------------------------------------
 mrb_value MrbEmoji::initialize(mrb_state *mrb, mrb_value self)
 {
     mrb_value src;

@@ -39,6 +39,11 @@ public:
         return fInner.dataType();
     }
 
+    static bool IsInstance(mrb_state *mrb, mrb_value value)
+    {
+        return fInner.isInstance(mrb, value);
+    }
+
 protected:
     static T& Self(mrb_value value)
     {
@@ -72,7 +77,7 @@ protected:
 
         T* toCpp(mrb_state *mrb, mrb_value value)
         {
-            if (!mrb_obj_is_instance_of(mrb, value, mClass)) {
+            if (!isInstance(mrb, value)) {
                 mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
             }
 
@@ -87,6 +92,11 @@ protected:
         struct mrb_data_type* dataType()
         {
             return &mDataType;
+        }
+
+        bool isInstance(mrb_state *mrb, mrb_value value)
+        {
+            return mrb_obj_is_instance_of(mrb, value, mClass);
         }
 
     private:

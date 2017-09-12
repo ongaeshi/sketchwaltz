@@ -9,7 +9,6 @@ class MrbEmoji
 {
 public:
     static void Init(mrb_state *mrb);
-    static bool IsInstance(mrb_state *mrb, mrb_value value);
 
 private:
     static mrb_value initialize(mrb_state *mrb, mrb_value self);
