@@ -183,6 +183,9 @@
     <ClCompile Include="MrbRect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -434,6 +437,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbObject.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbLine.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

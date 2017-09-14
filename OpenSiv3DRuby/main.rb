@@ -16,6 +16,9 @@ while System.update do
   Rect.new(90, 228, 40, 150).draw(Palette::Yellowgreen)
   Circle.new(c.x, c.y, 50).draw([255, 0, 0, 128])
   Rect.new(150, 228, 40, 150).draw(Palette::Yellowgreen)
+  Line.new(100, 220, 300, 320).draw
+  Line.new(100, 320, 300, 420).draw(2)
+  Line.new(100, 420, 300, 520).draw(11, Palette::Green)
   cat.scale(2, 2).draw(0, 0)
   font["こんにちは"].draw(0, 0)
   font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)

@@ -5,6 +5,7 @@
 #include "MrbColorF.hpp"
 #include "MrbDrawableText.hpp"
 #include "MrbFont.hpp"
+#include "MrbLine.hpp"
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
 #include "MrbRect.hpp"
@@ -29,6 +30,8 @@ namespace siv3druby {
 
     void mainLoop()
     {
+        Window::SetTitle(L"RubyPen");
+
         mrb_state* mrb = mrb_open();
 
         loadBuiltin(mrb);
@@ -37,6 +40,7 @@ namespace siv3druby {
         MrbColorF::Init(mrb);
         MrbDrawableText::Init(mrb);
         MrbFont::Init(mrb);
+        MrbLine::Init(mrb);
         MrbMisc::Init(mrb);
         MrbPoint::Init(mrb);
         MrbRect::Init(mrb);
