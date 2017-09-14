@@ -29,5 +29,6 @@ while System.update do
   Line.new(200, 100, 300, 100).draw_arrow
   Line.new(200, 150, 300, 150).draw_arrow(5)
   Line.new(200, 200, 300, 200).draw_arrow(5, Vec2.new(30, 20))
-  Line.new(200, 250, 300, 250).draw_arrow(5, Vec2.new(30, 20), [255, 0, 128, 128])
+  Line.new(200, 250, 300, 250).draw_arrow(5, [50, 30], [255, 0, 128, 128])
+
 end

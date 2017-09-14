@@ -60,10 +60,10 @@ mrb_value MrbLine::draw_arrow(mrb_state *mrb, mrb_value self)
     switch (argc)
     {
         case 3:
-            Self(self).drawArrow(width, *MrbVec2::ToCpp(mrb, head_size), Util::ToColor(mrb, color));
+            Self(self).drawArrow(width, Util::ToVec2(mrb, head_size), Util::ToColor(mrb, color));
             break;
         case 2:
-            Self(self).drawArrow(width, *MrbVec2::ToCpp(mrb, head_size));
+            Self(self).drawArrow(width, Util::ToVec2(mrb, head_size));
             break;
         case 1:
             Self(self).drawArrow(width);
