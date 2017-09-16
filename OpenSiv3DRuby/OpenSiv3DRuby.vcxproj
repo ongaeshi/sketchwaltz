@@ -191,6 +191,7 @@
     <ClCompile Include="MrbRect.cpp" />
     <ClCompile Include="MrbTexture.cpp" />
     <ClCompile Include="MrbTextureRegion.cpp" />
+    <ClCompile Include="MrbTriangle.cpp" />
     <ClCompile Include="MrbVec2.cpp" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
@@ -284,6 +285,7 @@
     <ClInclude Include="MrbRect.hpp" />
     <ClInclude Include="MrbTexture.hpp" />
     <ClInclude Include="MrbTextureRegion.hpp" />
+    <ClInclude Include="MrbTriangle.hpp" />
     <ClInclude Include="MrbVec2.hpp" />
     <ClInclude Include="mruby\include\mrbconf.h" />
     <ClInclude Include="mruby\include\mruby.h" />

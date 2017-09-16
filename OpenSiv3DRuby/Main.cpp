@@ -11,6 +11,7 @@
 #include "MrbRect.hpp"
 #include "MrbTexture.hpp"
 #include "MrbTextureRegion.hpp"
+#include "MrbTriangle.hpp"
 #include "MrbVec2.hpp"
 #include "mruby.h"
 #include "mruby/compile.h"
@@ -46,6 +47,7 @@ namespace siv3druby {
         MrbRect::Init(mrb);
         MrbTexture::Init(mrb);
         MrbTextureRegion::Init(mrb);
+        MrbTriangle::Init(mrb);
         MrbVec2::Init(mrb);
 
         TextReader reader(fSiv3DRubyState.filePath);

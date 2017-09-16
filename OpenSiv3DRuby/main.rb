@@ -31,4 +31,12 @@ while System.update do
   Line.new(200, 200, 300, 200).draw_arrow(5, Vec2.new(30, 20))
   Line.new(200, 250, 300, 250).draw_arrow(5, [50, 30], [255, 0, 128, 128])
 
+  points = [
+    [50, 350],
+    [200, 400],
+    [100, 450],
+  ]
+
+  Triangle.new(points[0], points[1], points[2]).draw
+  Triangle.new(points[1], points[2], Vec2.new(100, 500)).draw(Palette::Hotpink)
 end
