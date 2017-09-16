@@ -188,6 +188,7 @@
     <ClCompile Include="MrbLine.cpp" />
     <ClCompile Include="MrbMisc.cpp" />
     <ClCompile Include="MrbPoint.cpp" />
+    <ClCompile Include="MrbPolygon.cpp" />
     <ClCompile Include="MrbQuad.cpp" />
     <ClCompile Include="MrbRect.cpp" />
     <ClCompile Include="MrbRoundRect.cpp" />
@@ -284,6 +285,7 @@
     <ClInclude Include="MrbMisc.hpp" />
     <ClInclude Include="MrbObject.hpp" />
     <ClInclude Include="MrbPoint.hpp" />
+    <ClInclude Include="MrbPolygon.hpp" />
     <ClInclude Include="MrbQuad.hpp" />
     <ClInclude Include="MrbRect.hpp" />
     <ClInclude Include="MrbRoundRect.hpp" />

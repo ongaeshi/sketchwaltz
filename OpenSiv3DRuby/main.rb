@@ -45,4 +45,17 @@ while System.update do
 
   RoundRect.new(305, 310, 40, 20, 8).draw
   RoundRect.new(355, 310, 40, 20, 16).draw(Palette::Teal)
+
+  Polygon.new([
+     [ 40, 10 ],
+     [ 44, 24 ],
+     [ 58, 24 ],
+     [ 47, 32 ],
+     [ 51, 46 ],
+     [ 40, 38 ],
+     [ 28, 46 ],
+     [ 32, 32 ],
+     [ 22, 24 ],
+     [ 36, 24 ]
+    ]).draw(Palette::Yellow)
 end
