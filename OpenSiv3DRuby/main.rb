@@ -23,6 +23,11 @@ while System.update do
   font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
   cat.resize(80, 80).draw(540, 380)
 
+  Rect.new(400, 300, 40, 100).draw_frame(4)
+  Rect.new(450, 300, 40, 100).draw_frame(4, Palette::Navy)
+  Rect.new(500, 300, 40, 100).draw_inner_outer(3, 0, Palette::Red)
+  Rect.new(500, 300, 40, 100).draw_inner_outer(0, 6, Palette::Green)
+
   Line.new(100, 220, 300, 320).draw
   Line.new(100, 320, 300, 420).draw(2)
   Line.new(100, 420, 300, 520).draw(11, Palette::Green)
