@@ -39,4 +39,7 @@ while System.update do
 
   Triangle.new(points[0], points[1], points[2]).draw
   Triangle.new(points[1], points[2], Vec2.new(100, 500)).draw(Palette::Hotpink)
+
+  Quad.new([ 370, 405 ], [ 390, 405 ], [ 410, 440 ], [ 350, 440 ]).draw
+  Quad.new([ 420, 405 ], [ 440, 405 ], [ 460, 440 ], [ 400, 440 ]).draw(Palette::Brown)
 end
