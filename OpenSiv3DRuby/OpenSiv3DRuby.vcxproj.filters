@@ -192,6 +192,9 @@
     <ClCompile Include="MrbQuad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbRoundRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -452,6 +455,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbQuad.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbRoundRect.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

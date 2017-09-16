@@ -190,6 +190,7 @@
     <ClCompile Include="MrbPoint.cpp" />
     <ClCompile Include="MrbQuad.cpp" />
     <ClCompile Include="MrbRect.cpp" />
+    <ClCompile Include="MrbRoundRect.cpp" />
     <ClCompile Include="MrbTexture.cpp" />
     <ClCompile Include="MrbTextureRegion.cpp" />
     <ClCompile Include="MrbTriangle.cpp" />
@@ -285,6 +286,7 @@
     <ClInclude Include="MrbPoint.hpp" />
     <ClInclude Include="MrbQuad.hpp" />
     <ClInclude Include="MrbRect.hpp" />
+    <ClInclude Include="MrbRoundRect.hpp" />
     <ClInclude Include="MrbTexture.hpp" />
     <ClInclude Include="MrbTextureRegion.hpp" />
     <ClInclude Include="MrbTriangle.hpp" />

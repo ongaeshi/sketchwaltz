@@ -42,4 +42,7 @@ while System.update do
 
   Quad.new([ 370, 405 ], [ 390, 405 ], [ 410, 440 ], [ 350, 440 ]).draw
   Quad.new([ 420, 405 ], [ 440, 405 ], [ 460, 440 ], [ 400, 440 ]).draw(Palette::Brown)
+
+  RoundRect.new(305, 310, 40, 20, 8).draw
+  RoundRect.new(355, 310, 40, 20, 16).draw(Palette::Teal)
 end
