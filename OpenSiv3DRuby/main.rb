@@ -10,6 +10,9 @@ puts "#{Vec2}: (#{vec.x}, #{vec.y})"
 puts "random: #{random}, #{random(10)}, #{random(3, 4)}"
 puts "width: #{Window.width}, height: #{Window.height}"
 
+rect = Rect.new(550, 50, 100, 40)
+radian = 0
+
 while System.update do
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
@@ -58,6 +61,11 @@ while System.update do
      [ 36, 24 ]
     ]).draw(Palette::Yellow)
 
+  radian += 1 / (180 / 3.14)
+  rect.draw
+  rect.rotated(radian).draw(Palette::Orange)
+
+  #---
   c = Cursor.pos
 
   Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
