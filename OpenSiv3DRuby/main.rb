@@ -11,17 +11,11 @@ puts "random: #{random}, #{random(10)}, #{random(3, 4)}"
 puts "width: #{Window.width}, height: #{Window.height}"
 
 while System.update do
-  c = Cursor.pos
+  Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
-  Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
-  Rect.new(90, 228, 40, 150).draw(Palette::Yellowgreen)
-  Circle.new(c.x, c.y, 50).draw([255, 0, 0, 128])
-  Rect.new(150, 228, 40, 150).draw(Palette::Yellowgreen)
-
-  cat.scale(2, 2).draw(0, 0)
-  font["こんにちは"].draw(0, 0)
-  font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
-  cat.resize(80, 80).draw(540, 380)
+  circle = Circle.new(530, 250, 20)
+  circle.draw_inner_outer(5, 0)
+  circle.draw_inner_outer(0, 20, Palette::Brown)
 
   Rect.new(400, 300, 40, 100).draw_frame(4)
   Rect.new(450, 300, 40, 100).draw_frame(4, Palette::Navy)
@@ -63,4 +57,17 @@ while System.update do
      [ 22, 24 ],
      [ 36, 24 ]
     ]).draw(Palette::Yellow)
+
+  c = Cursor.pos
+
+  Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
+  Rect.new(90, 228, 40, 150).draw(Palette::Yellowgreen)
+  Circle.new(c.x, c.y, 50).draw([255, 0, 0, 128])
+  Rect.new(150, 228, 40, 150).draw(Palette::Yellowgreen)
+
+  cat.scale(2, 2).draw(0, 0)
+  font["こんにちは"].draw(0, 0)
+  font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
+  cat.resize(80, 80).draw(540, 380)
+
 end
