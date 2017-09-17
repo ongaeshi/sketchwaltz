@@ -62,7 +62,7 @@ while System.update do
      [ 36, 24 ]
     ]).draw(Palette::Yellow)
 
-  radian += 1 / (180 / Math::PI)
+  radian += Math.radians(1.2)
   rect.draw
   rect.rotated(radian).draw(Palette::Orange)
 
