@@ -9,6 +9,7 @@ p Point, point.x, point.y
 puts "#{Vec2}: (#{vec.x}, #{vec.y})"
 puts "random: #{random}, #{random(10)}, #{random(3, 4)}"
 puts "width: #{Window.width}, height: #{Window.height}"
+puts "PI: #{Math::PI}, E: #{Math::E}"
 
 rect = Rect.new(550, 50, 100, 40)
 radian = 0
@@ -61,7 +62,7 @@ while System.update do
      [ 36, 24 ]
     ]).draw(Palette::Yellow)
 
-  radian += 1 / (180 / 3.14)
+  radian += 1 / (180 / Math::PI)
   rect.draw
   rect.rotated(radian).draw(Palette::Orange)
 

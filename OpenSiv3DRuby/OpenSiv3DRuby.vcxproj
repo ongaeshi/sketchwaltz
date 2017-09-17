@@ -196,8 +196,11 @@
     <ClCompile Include="MrbTextureRegion.cpp" />
     <ClCompile Include="MrbTriangle.cpp" />
     <ClCompile Include="MrbVec2.cpp" />
+    <ClCompile Include="mruby\mrbgems\gem_init.c" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
     <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
+    <ClCompile Include="mruby\mrbgems\mruby-math\math_gem_init.c" />
+    <ClCompile Include="mruby\mrbgems\mruby-math\math.c" />
     <ClCompile Include="mruby\src\array.c" />
     <ClCompile Include="mruby\src\backtrace.c" />
     <ClCompile Include="mruby\src\class.c" />

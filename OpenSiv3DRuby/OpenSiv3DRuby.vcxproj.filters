@@ -43,6 +43,9 @@
     <Filter Include="Source Files\mruby">
       <UniqueIdentifier>{8802c093-5201-49ba-b7bb-29120f066063}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\mruby\mruby-math">
+      <UniqueIdentifier>{62c18e04-75e3-4190-acff-0cd2bb5073dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -197,6 +200,15 @@
     </ClCompile>
     <ClCompile Include="MrbPolygon.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-math\math.c">
+      <Filter>Source Files\mruby\mruby-math</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\gem_init.c">
+      <Filter>Source Files\mruby</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-math\math_gem_init.c">
+      <Filter>Source Files\mruby\mruby-math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
