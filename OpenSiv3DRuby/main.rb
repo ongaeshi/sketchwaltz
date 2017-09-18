@@ -18,8 +18,10 @@ texture = Texture.new("Example/Windmill.png")
 
 while System.update do
   texture.draw
+  texture.mirror.draw(100, 50)
   texture.draw(100, 50)
   texture[260, 100, 200, 220].draw(20, 20)
+  texture[260, 100, 200, 220].mirror.draw(350, 200)
 
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
