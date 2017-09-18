@@ -210,6 +210,9 @@
     <ClCompile Include="mruby\mrbgems\mruby-math\math_gem_init.c">
       <Filter>Source Files\mruby\mruby-math</Filter>
     </ClCompile>
+    <ClCompile Include="MrbLineString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -476,6 +479,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbPolygon.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbLineString.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

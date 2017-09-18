@@ -66,6 +66,16 @@ while System.update do
   rect.draw
   rect.rotated(radian).draw(Palette::Orange)
 
+	LineString.new([
+    [ 305, 10 ],
+    [ 360, 10 ],
+    [ 305, 20 ],
+    [ 360, 20 ],
+		[ 305, 30 ],
+    [ 360, 30 ],
+		[ 305, 40 ]
+  ]).draw(3, Palette::Lightgoldenrodyellow)
+
   #---
   c = Cursor.pos
 

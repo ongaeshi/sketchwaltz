@@ -6,6 +6,7 @@
 #include "MrbDrawableText.hpp"
 #include "MrbFont.hpp"
 #include "MrbLine.hpp"
+#include "MrbLineString.hpp"
 #include "MrbMisc.hpp"
 #include "MrbPoint.hpp"
 #include "MrbPolygon.hpp"
@@ -45,6 +46,7 @@ namespace siv3druby {
         MrbDrawableText::Init(mrb);
         MrbFont::Init(mrb);
         MrbLine::Init(mrb);
+        MrbLineString::Init(mrb);
         MrbMisc::Init(mrb);
         MrbPoint::Init(mrb);
         MrbPolygon::Init(mrb);
