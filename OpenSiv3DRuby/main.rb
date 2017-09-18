@@ -14,7 +14,13 @@ puts "PI: #{Math::PI}, E: #{Math::E}"
 rect = Rect.new(550, 50, 100, 40)
 radian = 0
 
+texture = Texture.new("Example/Windmill.png")
+
 while System.update do
+  texture.draw
+  texture.draw(100, 50)
+  texture[260, 100, 200, 220].draw(20, 20)
+
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
   circle = Circle.new(530, 250, 20)

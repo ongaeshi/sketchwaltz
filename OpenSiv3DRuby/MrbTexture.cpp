@@ -18,6 +18,7 @@ void MrbTexture::Init(mrb_state* mrb)
     mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
     mrb_define_method(mrb, Cc(), "resize", resize, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, Cc(), "[]", aref, MRB_ARGS_REQ(4));
 }
 
 //----------------------------------------------------------
@@ -85,6 +86,18 @@ mrb_value MrbTexture::scale(mrb_state *mrb, mrb_value self)
     return MrbTextureRegion::ToMrb(
         mrb,
         new TextureRegion(Self(self).scale(x, y))
+        );
+}
+
+//----------------------------------------------------------
+mrb_value MrbTexture::aref(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y, w, h;
+    mrb_get_args(mrb, "ffff", &x, &y, &w, &h);
+
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(Self(self)(x, y, w, h))
         );
 }
 
