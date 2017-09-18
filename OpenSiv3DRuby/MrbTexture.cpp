@@ -16,6 +16,8 @@ void MrbTexture::Init(mrb_state* mrb)
 
     mrb_define_method(mrb, Cc(), "initialize", initialize, MRB_ARGS_ARG(1, 1));
     mrb_define_method(mrb, Cc(), "[]", aref, MRB_ARGS_REQ(4));
+    mrb_define_method(mrb, Cc(), "map", map, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, Cc(), "repeat", repeat, MRB_ARGS_REQ(2));
 }
 
 //----------------------------------------------------------
@@ -48,6 +50,30 @@ mrb_value MrbTexture::aref(mrb_state *mrb, mrb_value self)
     return MrbTextureRegion::ToMrb(
         mrb,
         new TextureRegion(Self(self)(x, y, w, h))
+        );
+}
+
+//----------------------------------------------------------
+mrb_value MrbTexture::map(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y;
+    mrb_get_args(mrb, "ff", &x, &y);
+
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(Self(self).map(x, y))
+        );
+}
+
+//----------------------------------------------------------
+mrb_value MrbTexture::repeat(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y;
+    mrb_get_args(mrb, "ff", &x, &y);
+
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(Self(self).repeat(x, y))
         );
 }
 

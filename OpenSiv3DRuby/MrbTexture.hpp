@@ -13,5 +13,7 @@ public:
 private:
     static mrb_value initialize(mrb_state *mrb, mrb_value self);
     static mrb_value aref(mrb_state *mrb, mrb_value self);
+    static mrb_value map(mrb_state *mrb, mrb_value self);
+    static mrb_value repeat(mrb_state *mrb, mrb_value self);
 };
 }
