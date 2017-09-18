@@ -24,6 +24,11 @@ while System.update do
   texture[260, 100, 200, 220].draw(20, 20)
   texture[260, 100, 200, 220].mirror.draw(350, 200)
   texture[260, 100, 200, 220].flip.draw(350, 200)
+  texture.scale(0.5).draw
+  texture.scale(1.0, 0.5).draw(0, 200)
+  10.downto(1) do |e|
+    texture[260, 100, 200, 220].scale(e * 0.1).draw(350, 200)
+  end
 
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 

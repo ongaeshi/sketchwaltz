@@ -14,6 +14,7 @@ void MrbTextureRegion::Init(mrb_state* mrb)
     mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
     mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
     mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
+    mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_ARG(1, 1));
 }
 
 //----------------------------------------------------------
@@ -55,6 +56,27 @@ mrb_value MrbTextureRegion::mirror(mrb_state *mrb, mrb_value self)
         mrb,
         new TextureRegion(Self(self).mirror())
         );
+}
+
+//----------------------------------------------------------
+mrb_value MrbTextureRegion::scale(mrb_state *mrb, mrb_value self)
+{
+    mrb_float x, y;
+    int argc = mrb_get_args(mrb, "f|f", &x, &y);
+
+    switch (argc)
+    {
+        case 2:
+            return ToMrb(
+                mrb,
+                new TextureRegion(Self(self).scale(x, y))
+                );
+        default:
+            return ToMrb(
+                mrb,
+                new TextureRegion(Self(self).scale(x))
+                );
+    }
 }
 
 }
