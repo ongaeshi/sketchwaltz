@@ -12,6 +12,7 @@ public:
 
 private:
     static mrb_value draw(mrb_state *mrb, mrb_value self);
+    static mrb_value flip(mrb_state *mrb, mrb_value self);
     static mrb_value mirror(mrb_state *mrb, mrb_value self);
 };
 }

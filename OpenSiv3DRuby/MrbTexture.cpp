@@ -17,6 +17,7 @@ void MrbTexture::Init(mrb_state* mrb)
     mrb_define_method(mrb, Cc(), "initialize", initialize, MRB_ARGS_ARG(1, 1));
     mrb_define_method(mrb, Cc(), "[]", aref, MRB_ARGS_REQ(4));
     mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
+    mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
     mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
     mrb_define_method(mrb, Cc(), "resize", resize, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_REQ(2));
@@ -76,6 +77,15 @@ mrb_value MrbTexture::draw(mrb_state *mrb, mrb_value self)
     }
 
     return mrb_nil_value();
+}
+
+//----------------------------------------------------------
+mrb_value MrbTexture::flip(mrb_state *mrb, mrb_value self)
+{
+    return MrbTextureRegion::ToMrb(
+        mrb,
+        new TextureRegion(Self(self).flip())
+        );
 }
 
 //----------------------------------------------------------
