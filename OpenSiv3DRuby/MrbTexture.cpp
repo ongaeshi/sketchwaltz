@@ -12,15 +12,12 @@ MrbObject<Texture>::Inner MrbTexture::fInner;
 //----------------------------------------------------------
 void MrbTexture::Init(mrb_state* mrb)
 {
-    MrbObject::Init(mrb, "Texture");
+    MrbTextureObject::Init(mrb, "Texture");
 
     mrb_define_method(mrb, Cc(), "initialize", initialize, MRB_ARGS_ARG(1, 1));
     mrb_define_method(mrb, Cc(), "[]", aref, MRB_ARGS_REQ(4));
     mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
-    mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
-    mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
     mrb_define_method(mrb, Cc(), "resize", resize, MRB_ARGS_REQ(2));
-    mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_ARG(1, 1));
 }
 
 //----------------------------------------------------------
@@ -80,24 +77,6 @@ mrb_value MrbTexture::draw(mrb_state *mrb, mrb_value self)
 }
 
 //----------------------------------------------------------
-mrb_value MrbTexture::flip(mrb_state *mrb, mrb_value self)
-{
-    return MrbTextureRegion::ToMrb(
-        mrb,
-        new TextureRegion(Self(self).flip())
-        );
-}
-
-//----------------------------------------------------------
-mrb_value MrbTexture::mirror(mrb_state *mrb, mrb_value self)
-{
-    return MrbTextureRegion::ToMrb(
-        mrb,
-        new TextureRegion(Self(self).mirror())
-        );
-}
-
-//----------------------------------------------------------
 mrb_value MrbTexture::resize(mrb_state *mrb, mrb_value self)
 {
     mrb_float x, y;
@@ -107,27 +86,6 @@ mrb_value MrbTexture::resize(mrb_state *mrb, mrb_value self)
         mrb,
         new TextureRegion(Self(self).resize(x, y))
     );
-}
-
-//----------------------------------------------------------
-mrb_value MrbTexture::scale(mrb_state *mrb, mrb_value self)
-{
-    mrb_float x, y;
-    int argc = mrb_get_args(mrb, "f|f", &x, &y);
-
-    switch (argc)
-    {
-        case 2:
-            return MrbTextureRegion::ToMrb(
-                mrb,
-                new TextureRegion(Self(self).scale(x, y))
-                );
-        default:
-            return MrbTextureRegion::ToMrb(
-                mrb,
-                new TextureRegion(Self(self).scale(x))
-                );
-    }
 }
 
 }
