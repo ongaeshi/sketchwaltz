@@ -71,10 +71,21 @@ while System.update do
     [ 360, 10 ],
     [ 305, 20 ],
     [ 360, 20 ],
-		[ 305, 30 ],
+    [ 305, 30 ],
     [ 360, 30 ],
-		[ 305, 40 ]
+    [ 305, 40 ]
   ]).draw(3, Palette::Lightgoldenrodyellow)
+
+	line_string = LineString.new([
+    [ 405, 5 ],
+    [ 420, 30 ],
+    [ 440, 30 ],
+    [ 410, 60 ],
+    [ 450, 60 ]
+  ])
+
+  line_string.draw_catmull_rom(4, Palette::Darkslategray)
+  line_string.draw_catmull_rom(1, Palette::Red, true, 36)
 
   #---
   c = Cursor.pos
@@ -88,5 +99,4 @@ while System.update do
   font["こんにちは"].draw(0, 0)
   font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
   cat.resize(80, 80).draw(540, 380)
-
 end
