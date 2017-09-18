@@ -29,6 +29,8 @@ while System.update do
   10.downto(1) do |e|
     texture[260, 100, 200, 220].scale(e * 0.1).draw(350, 200)
   end
+  texture.resize(80, 80).draw
+  texture[260, 100, 200, 220].resize(50, 50).draw
 
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
