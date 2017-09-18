@@ -2,6 +2,7 @@
 
 #include <Siv3D.hpp>
 #include "MrbObject.hpp"
+#include "MrbTexturedQuad.hpp"
 #include "mruby.h"
 #include "mruby/class.h"
 #include "mruby/data.h"
@@ -23,6 +24,7 @@ public:
         mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
         mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
         mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
+        mrb_define_method(mrb, Cc(), "rotate", rotate, MRB_ARGS_NONE());
         mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_ARG(1, 1));
         mrb_define_method(mrb, Cc(), "resize", resize, MRB_ARGS_REQ(2));
     }
@@ -66,6 +68,18 @@ private:
         return MrbTextureRegion::ToMrb(
             mrb,
             new TextureRegion(Self(self).mirror())
+            );
+    }
+
+    //----------------------------------------------------------
+    static mrb_value rotate(mrb_state *mrb, mrb_value self)
+    {
+        mrb_float angle;
+        mrb_get_args(mrb, "f", &angle);
+
+        return MrbTexturedQuad::ToMrb(
+            mrb,
+            new TexturedQuad(Self(self).rotate(angle))
             );
     }
 

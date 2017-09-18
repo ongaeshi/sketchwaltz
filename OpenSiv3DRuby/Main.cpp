@@ -15,6 +15,7 @@
 #include "MrbRoundRect.hpp"
 #include "MrbTexture.hpp"
 #include "MrbTextureRegion.hpp"
+#include "MrbTexturedQuad.hpp"
 #include "MrbTriangle.hpp"
 #include "MrbVec2.hpp"
 #include "mruby.h"
@@ -55,6 +56,7 @@ namespace siv3druby {
         MrbRoundRect::Init(mrb);
         MrbTexture::Init(mrb);
         MrbTextureRegion::Init(mrb);
+        MrbTexturedQuad::Init(mrb);
         MrbTriangle::Init(mrb);
         MrbVec2::Init(mrb);
 
