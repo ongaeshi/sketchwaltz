@@ -34,7 +34,10 @@ while System.update do
 	texture.map(100, 200).draw
 	texture.repeat(640, 480).draw(0, 0, [255, 255, 255, 64])
   texture.rotate(Math.radians(-15)).draw()
-  texture[260, 100, 200, 220].rotate(Math.radians(15)).draw(350, 200);
+  texture[260, 100, 200, 220].rotate(Math.radians(15)).draw(350, 200)
+  texture.rotate_at(0, 0, Math.radians(-15)).draw()
+	texture[260, 100, 200, 220].rotate_at(50, 50, Math.radians(15)).draw(350, 200)
+  # Circle.new(350 + 50, 200 + 50, 3).draw
 
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 

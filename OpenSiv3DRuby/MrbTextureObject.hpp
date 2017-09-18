@@ -24,7 +24,8 @@ public:
         mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
         mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
         mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
-        mrb_define_method(mrb, Cc(), "rotate", rotate, MRB_ARGS_NONE());
+        mrb_define_method(mrb, Cc(), "rotate", rotate, MRB_ARGS_REQ(1));
+        mrb_define_method(mrb, Cc(), "rotate_at", rotate_at, MRB_ARGS_REQ(3));
         mrb_define_method(mrb, Cc(), "scale", scale, MRB_ARGS_ARG(1, 1));
         mrb_define_method(mrb, Cc(), "resize", resize, MRB_ARGS_REQ(2));
     }
@@ -80,6 +81,18 @@ private:
         return MrbTexturedQuad::ToMrb(
             mrb,
             new TexturedQuad(Self(self).rotate(angle))
+            );
+    }
+
+    //----------------------------------------------------------
+    static mrb_value rotate_at(mrb_state *mrb, mrb_value self)
+    {
+        mrb_float x, y, angle;
+        mrb_get_args(mrb, "fff", &x, &y, &angle);
+
+        return MrbTexturedQuad::ToMrb(
+            mrb,
+            new TexturedQuad(Self(self).rotateAt(x, y, angle))
             );
     }
 
