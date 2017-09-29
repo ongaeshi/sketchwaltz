@@ -36,7 +36,7 @@ namespace siv3druby {
 
     void mainLoop()
     {
-        Window::SetTitle(L"RubyPen");
+        Window::SetTitle(L"SketchWaltz 0.0.2dev");
 
         mrb_state* mrb = mrb_open();
 

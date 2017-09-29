@@ -121,6 +121,6 @@ while System.update do
 
   cat.scale(2, 2).draw(0, 0)
   font["こんにちは"].draw(0, 0)
-  font["Hello, Siv3D!🐣\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
+  font["Hello, SketchWaltz!💃\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
   cat.resize(80, 80).draw(540, 380)
 end
