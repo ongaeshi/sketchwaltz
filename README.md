@@ -2,7 +2,7 @@
 
 The easiest programming app for graphics, interactive and games using Ruby. 
 
-Dance the graphic programming with fun!
+Dance the graphics programming with fun!
 
 ## Install
 - Download from [Releases](https://github.com/ongaeshi/sketchwaltz/releases)
