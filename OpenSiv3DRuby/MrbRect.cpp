@@ -1,7 +1,9 @@
 #include "MrbRect.hpp"
 
-#include "Util.hpp"
 #include "MrbQuad.hpp"
+#include "MrbTexture.hpp"
+#include "MrbTexturedQuad.hpp"
+#include "Util.hpp"
 
 //----------------------------------------------------------
 namespace siv3druby {
@@ -13,6 +15,7 @@ void MrbRect::Init(mrb_state* mrb)
     MrbObject::Init(mrb, "Rect");
 
     mrb_define_method(mrb, Cc(), "initialize", initialize, MRB_ARGS_REQ(4));
+    mrb_define_method(mrb, Cc(), "[]", aref, MRB_ARGS_REQ(1));
     mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(1));
     mrb_define_method(mrb, Cc(), "draw_frame", draw_frame, MRB_ARGS_OPT(2));
     mrb_define_method(mrb, Cc(), "draw_inner_outer", draw_inner_outer, MRB_ARGS_ARG(2, 1));
@@ -27,6 +30,25 @@ mrb_value MrbRect::initialize(mrb_state *mrb, mrb_value self)
 
     Initialize(self, new Rect(x, y, w, h));
     return self;
+}
+
+//----------------------------------------------------------
+mrb_value MrbRect::aref(mrb_state *mrb, mrb_value self)
+{
+    mrb_value texture;
+    mrb_get_args(mrb, "o", &texture);
+
+    auto texturedQuad = Self(self)(*MrbTexture::ToCpp(mrb, texture));
+
+    return MrbTexturedQuad::ToMrb(
+        mrb,
+        new TexturedQuad(
+            texturedQuad.texture,
+            texturedQuad.uvRect,
+            texturedQuad.quad,
+            texturedQuad.center
+            )
+        );
 }
 
 //----------------------------------------------------------
