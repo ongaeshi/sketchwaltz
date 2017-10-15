@@ -40,6 +40,9 @@ while System.update do
   Rect.new(100, 100, 300, 200)[texture].draw
   Rect.new(100, 100, 300, 200)[texture[260, 100, 200, 220]].draw
   Rect.new(100, 100, 300, 200).rotated(Math.radians(45))[texture].draw
+  Rect.new(0, 0, 300, 300).draw
+  texture.draw(100, 100, [255, 255, 255, 180])
+  texture.draw(100, 100, [0, 255, 255])
 
   # Circle.new(350 + 50, 200 + 50, 3).draw
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
