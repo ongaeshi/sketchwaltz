@@ -43,6 +43,7 @@ while System.update do
   Rect.new(0, 0, 300, 300).draw
   texture.draw(100, 100, [255, 255, 255, 180])
   texture.draw(100, 100, [0, 255, 255])
+  Rect.new(0, 0, texture.width, texture.height).draw(Palette::Skyblue)
 
   # Circle.new(350 + 50, 200 + 50, 3).draw
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
