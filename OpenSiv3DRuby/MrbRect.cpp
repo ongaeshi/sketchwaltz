@@ -2,6 +2,7 @@
 
 #include "MrbQuad.hpp"
 #include "MrbTexture.hpp"
+#include "MrbTextureRegion.hpp"
 #include "MrbTexturedQuad.hpp"
 #include "Util.hpp"
 
@@ -38,7 +39,10 @@ mrb_value MrbRect::aref(mrb_state *mrb, mrb_value self)
     mrb_value texture;
     mrb_get_args(mrb, "o", &texture);
 
-    auto texturedQuad = Self(self)(*MrbTexture::ToCpp(mrb, texture));
+    TexturedQuad texturedQuad =
+        MrbTexture::IsInstance(mrb, texture) ?
+        Self(self)(*MrbTexture::ToCpp(mrb, texture)) :
+        Self(self)(*MrbTextureRegion::ToCpp(mrb, texture));
 
     return MrbTexturedQuad::ToMrb(
         mrb,
