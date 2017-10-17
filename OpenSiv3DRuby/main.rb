@@ -15,6 +15,7 @@ rect = Rect.new(550, 50, 100, 40)
 radian = 0
 
 texture = Texture.new("Example/Windmill.png")
+not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
 
 while System.update do
   texture.flip.draw
@@ -46,6 +47,7 @@ while System.update do
   Rect.new(0, 0, texture.width, texture.height).draw(Palette::Skyblue)
 	texture[260, 100, 200, 220].draw_at(300, 300)
 	texture.uv(0.0, 0.0, 0.5, 1.0).draw(100, 100)
+  not_existing_texture.draw
 
   # Circle.new(350 + 50, 200 + 50, 3).draw
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
