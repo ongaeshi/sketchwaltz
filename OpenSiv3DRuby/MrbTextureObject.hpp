@@ -22,6 +22,7 @@ public:
         MrbObject::Init(mrb, name);
 
         mrb_define_method(mrb, Cc(), "draw", draw, MRB_ARGS_OPT(3));
+        mrb_define_method(mrb, Cc(), "draw_at", draw_at, MRB_ARGS_OPT(3));
         mrb_define_method(mrb, Cc(), "flip", flip, MRB_ARGS_NONE());
         mrb_define_method(mrb, Cc(), "mirror", mirror, MRB_ARGS_NONE());
         mrb_define_method(mrb, Cc(), "rotate", rotate, MRB_ARGS_REQ(1));
@@ -48,6 +49,29 @@ private:
                 break;
             default:
                 Self(self).draw();
+                break;
+        }
+
+        return mrb_nil_value();
+    }
+
+    //----------------------------------------------------------
+    static mrb_value draw_at(mrb_state *mrb, mrb_value self)
+    {
+        mrb_float x, y;
+        mrb_value color;
+        int argc = mrb_get_args(mrb, "|ffo", &x, &y, &color);
+
+        switch (argc)
+        {
+            case 3:
+                Self(self).drawAt(x, y, Util::ToColor(mrb, color));
+                break;
+            case 2:
+                Self(self).drawAt(x, y);
+                break;
+            default:
+                Self(self).drawAt(0, 0);
                 break;
         }
 
