@@ -71,7 +71,7 @@ mrb_final_mrbgems(mrb_state *mrb) {
   /* GENERATED_TMP_mrb_mruby_random_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_object_ext_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_objectspace_gem_final(mrb); */
-  /* GENERATED_TMP_mrb_mruby_fiber_gem_final(mrb); */
+  GENERATED_TMP_mrb_mruby_fiber_gem_final(mrb);
   /* GENERATED_TMP_mrb_mruby_enumerator_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_enum_lazy_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_toplevel_ext_gem_final(mrb); */
@@ -96,7 +96,7 @@ mrb_init_mrbgems(mrb_state *mrb) {
   /* GENERATED_TMP_mrb_mruby_random_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_object_ext_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_objectspace_gem_init(mrb); */
-  /* GENERATED_TMP_mrb_mruby_fiber_gem_init(mrb); */
+  GENERATED_TMP_mrb_mruby_fiber_gem_init(mrb);
   /* GENERATED_TMP_mrb_mruby_enumerator_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_enum_lazy_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_toplevel_ext_gem_init(mrb); */

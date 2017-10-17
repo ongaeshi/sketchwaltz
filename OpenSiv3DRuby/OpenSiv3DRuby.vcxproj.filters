@@ -46,6 +46,9 @@
     <Filter Include="Source Files\mruby\mruby-math">
       <UniqueIdentifier>{62c18e04-75e3-4190-acff-0cd2bb5073dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\mruby\mruby-fiber">
+      <UniqueIdentifier>{82eb3040-7841-4932-a5a5-743aeae86849}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -215,6 +218,12 @@
     </ClCompile>
     <ClCompile Include="MrbTexturedQuad.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-fiber\fiber_gem_init.c">
+      <Filter>Source Files\mruby\mruby-fiber</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-fiber\fiber.c">
+      <Filter>Source Files\mruby\mruby-fiber</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
