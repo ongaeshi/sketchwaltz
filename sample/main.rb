@@ -1,5 +1,3 @@
-Graphics.set_background(Palette::Black)
-
 font = Font.new(30)
 
 while System.update do
