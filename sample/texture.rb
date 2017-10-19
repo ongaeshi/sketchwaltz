@@ -3,10 +3,22 @@ texture = Texture.new("Example/Windmill.png")
 not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
 
 def sample_case(title)
-  1.upto(60) do
-    yield
+  is_pause = false
+  rest = 60
 
+  while rest > 0 do
+    yield
     $font[title].draw(0, 380)
+
+    if is_pause
+      Rect.new(580, 15, 12, 35).draw([255, 255, 255, 128])
+      Rect.new(600, 15, 12, 35).draw([255, 255, 255, 128])
+      Rect.new(565, 0, 15 + 20 + 12 + 15, 65).draw([255, 255, 255, 128])
+      is_pause ^= true if MouseL.down && Cursor.pos.x > 560 && Cursor.pos.y < 70
+    else
+      rest -= 1
+      is_pause ^= true if MouseL.down
+    end
 
     Fiber.yield
   end
