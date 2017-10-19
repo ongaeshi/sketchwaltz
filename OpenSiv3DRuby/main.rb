@@ -122,7 +122,6 @@ while System.update do
   line_string.draw_catmull_rom(4, Palette::Darkslategray)
   line_string.draw_catmull_rom(1, Palette::Red, true, 36)
 
-  #---
   c = Cursor.pos
 
   Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
@@ -134,4 +133,10 @@ while System.update do
   font["こんにちは"].draw(0, 0)
   font["Hello, SketchWaltz!💃\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
   cat.resize(80, 80).draw(540, 380)
+
+  def b2i(b)
+    b ? 1 : 0
+  end
+  font["MouseL: #{b2i(MouseL.down)}, #{b2i(MouseL.pressed)}, #{b2i(MouseL.up)}"].draw(0, 360, Palette::Black)
+  font["MouseR: #{b2i(MouseR.down)}, #{b2i(MouseR.pressed)}, #{b2i(MouseR.up)}"].draw(0, 400, Palette::Black)
 end

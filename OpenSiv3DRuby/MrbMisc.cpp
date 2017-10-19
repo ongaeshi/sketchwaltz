@@ -64,6 +64,36 @@ static mrb_value cursor_pos(mrb_state *mrb, mrb_value self)
     return MrbPoint::ToMrb(mrb, new Point(Cursor::Pos()));
 }
 
+static mrb_value mousel_down(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseL.down());
+}
+
+static mrb_value mousel_pressed(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseL.pressed());
+}
+
+static mrb_value mousel_up(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseL.up());
+}
+
+static mrb_value mouser_down(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseR.down());
+}
+
+static mrb_value mouser_pressed(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseR.pressed());
+}
+
+static mrb_value mouser_up(mrb_state *mrb, mrb_value self)
+{
+    return mrb_bool_value(MouseR.up());
+}
+
 static mrb_value set_background(mrb_state *mrb, mrb_value self)
 {
     mrb_value color;
@@ -116,6 +146,22 @@ void MrbMisc::Init(mrb_state* mrb)
         struct RClass *cc = mrb_define_module(mrb, "Cursor");
 
         mrb_define_class_method(mrb, cc, "pos", cursor_pos, MRB_ARGS_NONE());
+    }
+
+    {
+        struct RClass *cc = mrb_define_module(mrb, "MouseL");
+
+        mrb_define_class_method(mrb, cc, "down", mousel_down, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "pressed", mousel_pressed, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "up", mousel_up, MRB_ARGS_NONE());
+    }
+
+    {
+        struct RClass *cc = mrb_define_module(mrb, "MouseR");
+
+        mrb_define_class_method(mrb, cc, "down", mouser_down, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "pressed", mouser_pressed, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "up", mouser_up, MRB_ARGS_NONE());
     }
 
     {
