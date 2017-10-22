@@ -64,6 +64,11 @@ static mrb_value cursor_pos(mrb_state *mrb, mrb_value self)
     return MrbPoint::ToMrb(mrb, new Point(Cursor::Pos()));
 }
 
+static mrb_value cursor_delta(mrb_state *mrb, mrb_value self)
+{
+    return MrbPoint::ToMrb(mrb, new Point(Cursor::Delta()));
+}
+
 static mrb_value mousel_down(mrb_state *mrb, mrb_value self)
 {
     return mrb_bool_value(MouseL.down());
@@ -146,6 +151,7 @@ void MrbMisc::Init(mrb_state* mrb)
         struct RClass *cc = mrb_define_module(mrb, "Cursor");
 
         mrb_define_class_method(mrb, cc, "pos", cursor_pos, MRB_ARGS_NONE());
+        mrb_define_class_method(mrb, cc, "delta", cursor_delta, MRB_ARGS_NONE());
     }
 
     {
