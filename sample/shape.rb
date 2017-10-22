@@ -61,7 +61,7 @@ fiber = Fiber.new do
       ])
 
       star.draw
-      # star.draw(400, 300)
+      star.moved_by(400, 300).draw
     end
 
     sample_case("Color") do
