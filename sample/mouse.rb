@@ -1,3 +1,4 @@
+Graphics.set_background([11, 22, 33])
 $font = Font.new(40)
 
 def sample_case(title)

@@ -1,3 +1,4 @@
+Graphics.set_background([11, 22, 33])
 $font = Font.new(50)
 texture = Texture.new("Example/Windmill.png")
 not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
