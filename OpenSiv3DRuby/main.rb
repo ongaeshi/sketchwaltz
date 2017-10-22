@@ -137,6 +137,7 @@ while System.update do
   def b2i(b)
     b ? 1 : 0
   end
+  font["Mouse: W:#{Mouse.wheel}, H:#{Mouse.wheelh}"].draw(0, 320, Palette::Black)
   font["MouseL: #{b2i(MouseL.down)}, #{b2i(MouseL.pressed)}, #{b2i(MouseL.up)}"].draw(0, 360, Palette::Black)
   font["MouseR: #{b2i(MouseR.down)}, #{b2i(MouseR.pressed)}, #{b2i(MouseR.up)}"].draw(0, 400, Palette::Black)
 end
