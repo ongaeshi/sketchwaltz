@@ -15,6 +15,7 @@ rect = Rect.new(550, 50, 100, 40)
 radian = 0
 
 texture = Texture.new("Example/Windmill.png")
+not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
 
 while System.update do
   texture.flip.draw
@@ -37,8 +38,18 @@ while System.update do
   texture[260, 100, 200, 220].rotate(Math.radians(15)).draw(350, 200)
   texture.rotate_at(0, 0, Math.radians(-15)).draw()
 	texture[260, 100, 200, 220].rotate_at(50, 50, Math.radians(15)).draw(350, 200)
-  # Circle.new(350 + 50, 200 + 50, 3).draw
+  Rect.new(100, 100, 300, 200)[texture].draw
+  Rect.new(100, 100, 300, 200)[texture[260, 100, 200, 220]].draw
+  Rect.new(100, 100, 300, 200).rotated(Math.radians(45))[texture].draw
+  Rect.new(0, 0, 300, 300).draw
+  texture.draw(100, 100, [255, 255, 255, 180])
+  texture.draw(100, 100, [0, 255, 255])
+  Rect.new(0, 0, texture.width, texture.height).draw(Palette::Skyblue)
+	texture[260, 100, 200, 220].draw_at(300, 300)
+	texture.uv(0.0, 0.0, 0.5, 1.0).draw(100, 100)
+  not_existing_texture.draw
 
+  # Circle.new(350 + 50, 200 + 50, 3).draw
   Circle.new(530, 170, 30).draw_frame(5, Palette::Blue)
 
   circle = Circle.new(530, 250, 20)
@@ -111,7 +122,6 @@ while System.update do
   line_string.draw_catmull_rom(4, Palette::Darkslategray)
   line_string.draw_catmull_rom(1, Palette::Red, true, 36)
 
-  #---
   c = Cursor.pos
 
   Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
@@ -121,6 +131,13 @@ while System.update do
 
   cat.scale(2, 2).draw(0, 0)
   font["こんにちは"].draw(0, 0)
-  font["Hello, SketchWaltz!💃\n#{c}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
+  font["Hello, SketchWaltz!💃\n#{c}#{Cursor.delta}"].draw_at(Window.center.x, Window.center.y, Palette::Black)
   cat.resize(80, 80).draw(540, 380)
+
+  def b2i(b)
+    b ? 1 : 0
+  end
+  font["Mouse: W:#{Mouse.wheel}, H:#{Mouse.wheelh}"].draw(0, 320, Palette::Black)
+  font["MouseL: #{b2i(MouseL.down)}, #{b2i(MouseL.pressed)}, #{b2i(MouseL.up)}"].draw(0, 360, Palette::Black)
+  font["MouseR: #{b2i(MouseR.down)}, #{b2i(MouseR.pressed)}, #{b2i(MouseR.up)}"].draw(0, 400, Palette::Black)
 end
