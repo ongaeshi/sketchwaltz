@@ -36,7 +36,7 @@ namespace siv3druby {
 
     void mainLoop()
     {
-        Window::SetTitle(L"SketchWaltz 0.0.2");
+        Window::SetTitle(L"SketchWaltz 0.0.3");
 
         mrb_state* mrb = mrb_open();
 
