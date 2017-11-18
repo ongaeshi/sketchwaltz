@@ -142,4 +142,9 @@ while System.update do
   font["Mouse: W:#{Mouse.wheel}, H:#{Mouse.wheelh}"].draw(0, 320, Palette::Black)
   font["MouseL: #{b2i(MouseL.down)}, #{b2i(MouseL.pressed)}, #{b2i(MouseL.up)}"].draw(0, 360, Palette::Black)
   font["MouseR: #{b2i(MouseR.down)}, #{b2i(MouseR.pressed)}, #{b2i(MouseR.up)}"].draw(0, 400, Palette::Black)
+
+  camera.transform do
+    font["Camera2D Test"].draw_at(320, 200)
+    Circle.new(320, 240, 50).draw([255, 0, 0, 127])
+  end
 end
