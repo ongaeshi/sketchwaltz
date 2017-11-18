@@ -225,6 +225,9 @@
     <ClCompile Include="mruby\mrbgems\mruby-fiber\fiber.c">
       <Filter>Source Files\mruby\mruby-fiber</Filter>
     </ClCompile>
+    <ClCompile Include="MrbCamera2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -497,6 +500,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbTexturedQuad.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbCamera2D.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

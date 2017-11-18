@@ -17,6 +17,8 @@ radian = 0
 texture = Texture.new("Example/Windmill.png")
 not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
 
+camera = Camera2D.new
+
 while System.update do
   texture.flip.draw
   texture.mirror.draw

@@ -1,9 +1,10 @@
 ﻿#include <Siv3D.hpp>
 #include "Main.hpp"
+#include "MrbCamera2D.hpp"
 #include "MrbCircle.hpp"
-#include "MrbEmoji.hpp"
 #include "MrbColorF.hpp"
 #include "MrbDrawableText.hpp"
+#include "MrbEmoji.hpp"
 #include "MrbFont.hpp"
 #include "MrbLine.hpp"
 #include "MrbLineString.hpp"
@@ -41,10 +42,11 @@ namespace siv3druby {
         mrb_state* mrb = mrb_open();
 
         loadBuiltin(mrb);
+        MrbCamera2D::Init(mrb);
         MrbCircle::Init(mrb);
-        MrbEmoji::Init(mrb);
         MrbColorF::Init(mrb);
         MrbDrawableText::Init(mrb);
+        MrbEmoji::Init(mrb);
         MrbFont::Init(mrb);
         MrbLine::Init(mrb);
         MrbLineString::Init(mrb);

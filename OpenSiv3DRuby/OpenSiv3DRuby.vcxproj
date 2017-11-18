@@ -181,6 +181,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MrbCamera2D.cpp" />
     <ClCompile Include="MrbCircle.cpp" />
     <ClCompile Include="MrbColorF.cpp" />
     <ClCompile Include="MrbDrawableText.cpp" />
@@ -284,6 +285,7 @@
     <None Include="mruby\mrbgems\mruby-compiler\core\lex.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MrbCamera2D.hpp" />
     <ClInclude Include="MrbCircle.hpp" />
     <ClInclude Include="MrbColorF.hpp" />
     <ClInclude Include="MrbDrawableText.hpp" />
