@@ -3,7 +3,7 @@ Graphics.set_background(Palette::White)
 def draw_circle(x, y, radius)
   Circle.new(x, y, radius).draw_frame(1, Palette::Black)
   if radius > 2
-    radius *= 0.75
+    radius *= 0.99
     draw_circle(x, y, radius)
   end
 end
