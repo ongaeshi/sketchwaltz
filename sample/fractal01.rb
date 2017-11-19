@@ -1,10 +1,12 @@
 Graphics.set_background(Palette::White)
 
-def draw_circle(x, y, radius)
-  Circle.new(x, y, radius).draw_frame(1, Palette::Black)
-  if radius > 2
-    radius *= 0.99
-    draw_circle(x, y, radius)
+def draw_circle(x, y, radius, color = Palette::Black)
+  Circle.new(x, y, radius).draw_frame(1, color)
+  if radius > 8
+    draw_circle(x + radius/2, y, radius/2, Palette::Black)
+    draw_circle(x - radius/2, y, radius/2, Palette::Red)
+    draw_circle(x, y + radius/2, radius/2, Palette::Green)
+    draw_circle(x, y - radius/2, radius/2, Palette::Blue)
   end
 end
 
