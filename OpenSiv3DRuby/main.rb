@@ -1,3 +1,5 @@
+Window.resize(640, 480, false)
+
 Graphics.set_background([204, 230, 255])
 
 font = Font.new(50)
