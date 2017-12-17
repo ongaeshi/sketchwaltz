@@ -1,6 +1,7 @@
 #include "Util.hpp"
 
 #include "MrbColorF.hpp"
+#include "MrbHSV.hpp"
 #include "MrbVec2.hpp"
 #include "mruby/array.h"
 #include "mruby/numeric.h"
@@ -29,6 +30,8 @@ Color Util::ToColor(mrb_state *mrb, mrb_value obj)
                 mrb_raise(mrb, E_TYPE_ERROR, "Color Array size is 3 or 4");
                 return Color(0, 0, 0);
         }
+    } else if (MrbHSV::IsInstance(mrb, obj)) {
+        return MrbHSV::ToCpp(mrb, obj)->toColor();
     } else if (mrb_obj_is_instance_of(mrb, obj, mrb_class_get(mrb, "ColorF"))) {
         return MrbColorF::ToCpp(mrb, obj)->toColor();
     } else {

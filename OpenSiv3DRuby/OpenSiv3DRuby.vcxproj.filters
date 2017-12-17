@@ -228,6 +228,9 @@
     <ClCompile Include="MrbCamera2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MrbHSV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Icon.ico">
@@ -503,6 +506,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MrbCamera2D.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MrbHSV.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

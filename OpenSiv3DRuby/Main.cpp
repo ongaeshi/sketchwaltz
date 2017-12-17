@@ -6,6 +6,7 @@
 #include "MrbDrawableText.hpp"
 #include "MrbEmoji.hpp"
 #include "MrbFont.hpp"
+#include "MrbHSV.hpp"
 #include "MrbLine.hpp"
 #include "MrbLineString.hpp"
 #include "MrbMisc.hpp"
@@ -48,6 +49,7 @@ namespace siv3druby {
         MrbDrawableText::Init(mrb);
         MrbEmoji::Init(mrb);
         MrbFont::Init(mrb);
+        MrbHSV::Init(mrb);
         MrbLine::Init(mrb);
         MrbLineString::Init(mrb);
         MrbMisc::Init(mrb);

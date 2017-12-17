@@ -21,6 +21,8 @@ not_existing_texture = Texture.new("NOT_EXIST_TEXTURE.png")
 
 camera = Camera2D.new
 
+hue = 0
+
 while System.update do
   texture.flip.draw
   texture.mirror.draw
@@ -129,6 +131,8 @@ while System.update do
   c = Cursor.pos
 
   Circle.new(600, 15, 15).draw(ColorF.new(1, 1, 1, 0.5))
+  Circle.new(550, 15, 15).draw(HSV.new(hue, 1, 1, 1))
+  hue += 1
   Rect.new(90, 228, 40, 150).draw(Palette::Yellowgreen)
   Circle.new(c.x, c.y, 50).draw([255, 0, 0, 128])
   Rect.new(150, 228, 40, 150).draw(Palette::Yellowgreen)
