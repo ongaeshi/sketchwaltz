@@ -295,4 +295,5 @@ __pycache__/
 # sample
 sample/*.exe
 sample/*.zip
+sample/Screenshot
 
