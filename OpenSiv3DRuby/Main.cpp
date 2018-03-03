@@ -24,6 +24,8 @@
 #include "mruby/compile.h"
 #include "mruby/string.h"
 #include "mruby/dump.h"
+#include <Windows.h>
+
 
 extern "C" const uint8_t __declspec(align(4)) mrb_siv3druby_builtin[];
 
@@ -106,6 +108,13 @@ namespace siv3druby {
 void Main()
 {
     using namespace siv3druby;
+
+    int nArgs = 0;
+    LPWSTR* szArglist = ::CommandLineToArgvW(::GetCommandLineW(), &nArgs);
+    if (nArgs >= 2) {
+        fSiv3DRubyState.filePath = String(szArglist[1]);
+    }
+    ::LocalFree(szArglist);
 
     fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
 

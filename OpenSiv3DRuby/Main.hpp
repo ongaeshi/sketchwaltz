@@ -5,7 +5,7 @@ namespace siv3druby {
 class Siv3DRubyState {
 public:
     Siv3DRubyState()
-    : filePath(L"main.rb")
+    : filePath()
     , isReload(false)
     {
     }
