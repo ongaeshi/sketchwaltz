@@ -21,6 +21,7 @@
 #include "MrbTriangle.hpp"
 #include "MrbVec2.hpp"
 #include "mruby.h"
+#include "mruby/array.h"
 #include "mruby/compile.h"
 #include "mruby/string.h"
 #include "mruby/dump.h"
@@ -33,6 +34,18 @@ namespace siv3druby {
 
     Siv3DRubyState fSiv3DRubyState;
 
+    void setArgv(mrb_state* mrb)
+    {
+        int argc = fSiv3DRubyState.argv.count();
+        mrb_value ARGV = mrb_ary_new_capa(mrb, argc);
+
+        for (int i = 1; i < argc; i++) {
+            mrb_ary_push(mrb, ARGV, mrb_str_new_cstr(mrb, fSiv3DRubyState.argv[i].toUTF8().c_str()));
+        }
+
+        mrb_define_global_const(mrb, "ARGV", ARGV);
+    }
+
     void loadBuiltin(mrb_state* mrb)
     {
         mrb_load_irep(mrb, mrb_siv3druby_builtin);
@@ -44,6 +57,7 @@ namespace siv3druby {
 
         mrb_state* mrb = mrb_open();
 
+        setArgv(mrb);
         loadBuiltin(mrb);
         MrbCamera2D::Init(mrb);
         MrbCircle::Init(mrb);
@@ -112,7 +126,7 @@ namespace siv3druby {
         LPWSTR* szArglist = ::CommandLineToArgvW(::GetCommandLineW(), &nArgs);
 
         for (int i = 1; i < nArgs; i++) {
-            argv << String(szArglist[1]);
+            argv << String(szArglist[i]);
         }
         ::LocalFree(szArglist);
 
@@ -126,6 +140,7 @@ void Main()
     using namespace siv3druby;
 
     auto args = getArgs();
+    fSiv3DRubyState.argv = args;
     if (args.count() >= 1) {
         fSiv3DRubyState.filePath = String(args[0]);
     }
