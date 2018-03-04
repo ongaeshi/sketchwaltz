@@ -103,19 +103,32 @@ namespace siv3druby {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
     }
+
+    Array<String> getArgs()
+    {
+        auto argv = Array<String>();
+
+        int nArgs = 0;
+        LPWSTR* szArglist = ::CommandLineToArgvW(::GetCommandLineW(), &nArgs);
+
+        for (int i = 1; i < nArgs; i++) {
+            argv << String(szArglist[1]);
+        }
+        ::LocalFree(szArglist);
+
+        return argv;
+    }
 }
+
 
 void Main()
 {
     using namespace siv3druby;
 
-    int nArgs = 0;
-    LPWSTR* szArglist = ::CommandLineToArgvW(::GetCommandLineW(), &nArgs);
-    if (nArgs >= 2) {
-        fSiv3DRubyState.filePath = String(szArglist[1]);
+    auto args = getArgs();
+    if (args.count() >= 1) {
+        fSiv3DRubyState.filePath = String(args[0]);
     }
-    ::LocalFree(szArglist);
-
     fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
 
     std::thread t([&] {
