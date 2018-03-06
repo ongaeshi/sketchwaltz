@@ -7,12 +7,14 @@ public:
     Siv3DRubyState()
     : argv()
     , filePath()
+    , evalString()
     , isReload(false)
     {
     }
 
     Array<String> argv;
     FilePath filePath;
+    String evalString;
     bool isReload;
     Optional<DateTime> lastWriteTime;
 };

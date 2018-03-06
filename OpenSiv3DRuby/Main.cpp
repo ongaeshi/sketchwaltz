@@ -39,7 +39,7 @@ namespace siv3druby {
         int argc = fSiv3DRubyState.argv.count();
         mrb_value ARGV = mrb_ary_new_capa(mrb, argc);
 
-        for (int i = 1; i < argc; i++) {
+        for (int i = 0; i < argc; i++) {
             mrb_ary_push(mrb, ARGV, mrb_str_new_cstr(mrb, fSiv3DRubyState.argv[i].toUTF8().c_str()));
         }
 
@@ -80,8 +80,14 @@ namespace siv3druby {
         MrbTriangle::Init(mrb);
         MrbVec2::Init(mrb);
 
-        TextReader reader(fSiv3DRubyState.filePath);
-        const String s = reader.readAll();
+        String s;
+
+        if (fSiv3DRubyState.evalString != L"") {
+            s = fSiv3DRubyState.evalString;
+        } else {
+            TextReader reader(fSiv3DRubyState.filePath);
+            s = reader.readAll();
+        }
 
         {
             mrb_value ret = mrb_load_string(mrb, s.toUTF8().c_str());
@@ -140,11 +146,18 @@ void Main()
     using namespace siv3druby;
 
     auto args = getArgs();
-    fSiv3DRubyState.argv = args;
-    if (args.count() >= 1) {
+
+    // TODO: Need option parser
+    if (args.count() == 0) {
+        // TODO: help message
+    } else if (args[0] == L"-e") {
+        fSiv3DRubyState.evalString = args[1];
+        fSiv3DRubyState.argv = args.slice(2);
+    } else {
         fSiv3DRubyState.filePath = String(args[0]);
+        fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
+        fSiv3DRubyState.argv = args.slice(1);
     }
-    fSiv3DRubyState.lastWriteTime = FileSystem::WriteTime(fSiv3DRubyState.filePath);
 
     std::thread t([&] {
         threadLoop();
