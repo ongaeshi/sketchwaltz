@@ -8,6 +8,7 @@ public:
     : argv()
     , filePath()
     , evalString()
+    , isCapture(false)
     , isReload(false)
     {
     }
@@ -15,6 +16,7 @@ public:
     Array<String> argv;
     FilePath filePath;
     String evalString;
+    bool isCapture;
     bool isReload;
     Optional<DateTime> lastWriteTime;
 };

@@ -147,6 +147,12 @@ void Main()
 
     auto args = getArgs();
 
+    auto opt = L"--capture";
+    if (args.include(opt)) {
+        fSiv3DRubyState.isCapture = true;
+        args.remove(opt);
+    }
+
     // TODO: Need option parser
     if (args.count() == 0) {
         // TODO: help message

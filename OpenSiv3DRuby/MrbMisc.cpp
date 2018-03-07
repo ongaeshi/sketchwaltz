@@ -45,6 +45,8 @@ static mrb_value random(mrb_state *mrb, mrb_value self)
 
 static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
+    auto retVal = System::Update();
+
     if (DragDrop::HasNewFilePaths()) {
         const auto items = DragDrop::GetDroppedFilePaths();
 
@@ -54,10 +56,15 @@ static mrb_value system_update(mrb_state *mrb, mrb_value self)
         }
     }
 
+    if (fSiv3DRubyState.isCapture) {
+        fSiv3DRubyState.isCapture = false;
+        ScreenCapture::SaveCurrentFrame();
+    }
+
     if (fSiv3DRubyState.isReload) {
         return mrb_bool_value(false);
     } else {
-        return mrb_bool_value(System::Update());
+        return mrb_bool_value(retVal);
     }
 }
 
