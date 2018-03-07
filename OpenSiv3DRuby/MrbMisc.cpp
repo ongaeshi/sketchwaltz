@@ -47,15 +47,6 @@ static mrb_value system_update(mrb_state *mrb, mrb_value self)
 {
     auto retVal = System::Update();
 
-    if (DragDrop::HasNewFilePaths()) {
-        const auto items = DragDrop::GetDroppedFilePaths();
-
-        for (const auto& item : items) {
-            fSiv3DRubyState.filePath = item.path;
-            fSiv3DRubyState.isReload = true;
-        }
-    }
-
     if (fSiv3DRubyState.isCapture) {
         fSiv3DRubyState.isCapture = false;
         ScreenCapture::SaveCurrentFrame();
