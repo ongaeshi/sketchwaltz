@@ -153,6 +153,12 @@ void Main()
         args.remove(opt);
     }
 
+    opt = L"--watch";
+    if (args.include(opt)) {
+        fSiv3DRubyState.isWatch = true;
+        args.remove(opt);
+    }
+
     // TODO: Need option parser
     if (args.count() == 0) {
         // TODO: help message
@@ -165,10 +171,12 @@ void Main()
         fSiv3DRubyState.argv = args.slice(1);
     }
 
-    std::thread t([&] {
-        threadLoop();
-    });
-    t.detach();
+    if (fSiv3DRubyState.isWatch) {
+        std::thread t([&] {
+            threadLoop();
+        });
+        t.detach();
+    }
 
     do {
         ClearPrint();

@@ -9,6 +9,7 @@ public:
     , filePath()
     , evalString()
     , isCapture(false)
+    , isWatch(false)
     , isReload(false)
     {
     }
@@ -17,6 +18,7 @@ public:
     FilePath filePath;
     String evalString;
     bool isCapture;
+    bool isWatch;
     bool isReload;
     Optional<DateTime> lastWriteTime;
 };
