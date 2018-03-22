@@ -168,7 +168,7 @@ void Main()
                 std::cout << "error: Already exists " << args[0] << std::endl;
             } else {
                 auto writer = TextWriter(args[0]);
-                writer.writeUTF8(u8"# Sample: https://scrapbox.io/sketchwaltz\nfont = Font.new(30)\ny = -300\n\nwhile System.update do\n  Circle.new(Cursor.pos.x, Cursor.pos.y, 30).draw(Palette::Indigo)\n  Circle.new(Cursor.pos.x, Cursor.pos.y, 20).draw(Palette::Purple)\n  font['Hello, World!🐕'].draw_at(Window.center.x, Window.center.y + y, Palette::White)\n  y += 1 if y < 0\n\n  Rect.new(0, 400, 640, 400).draw(Palette::Purple)\nend\n");
+                writer.writeUTF8(u8"# Sample: https://scrapbox.io/sketchwaltz\nGraphics.set_background([10, 10, 10])\nt = Texture.new(Emoji.new(\"👻\"))\nfont = Font.new(35)\ny = -300\n\nwhile System.update do\n  t.draw_at(Cursor.pos.x, Cursor.pos.y)\n  font[\"Hello, World!🐕\"].draw_at(Window.center.x, Window.center.y + y, Palette::White)\n  y += 1 if y < 0\n\n  Rect.new(0, 400, 640, 400).draw(Palette::Lightseagreen)\nend\n");
 
                 std::cout << "Create a script file " << args[0] << std::endl;
             }
