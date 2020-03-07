@@ -52,6 +52,8 @@ void GENERATED_TMP_mrb_mruby_toplevel_ext_gem_init(mrb_state*);
 void GENERATED_TMP_mrb_mruby_toplevel_ext_gem_final(mrb_state*);
 void GENERATED_TMP_mrb_mruby_kernel_ext_gem_init(mrb_state*);
 void GENERATED_TMP_mrb_mruby_kernel_ext_gem_final(mrb_state*);
+void mrb_mruby_require_gem_init(mrb_state*);
+void mrb_mruby_require_gem_final(mrb_state*);
 
 static void
 mrb_final_mrbgems(mrb_state *mrb) {
@@ -76,6 +78,7 @@ mrb_final_mrbgems(mrb_state *mrb) {
   /* GENERATED_TMP_mrb_mruby_enum_lazy_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_toplevel_ext_gem_final(mrb); */
   /* GENERATED_TMP_mrb_mruby_kernel_ext_gem_final(mrb); */
+  mrb_mruby_require_gem_final(mrb);
 }
 
 void
@@ -101,5 +104,6 @@ mrb_init_mrbgems(mrb_state *mrb) {
   /* GENERATED_TMP_mrb_mruby_enum_lazy_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_toplevel_ext_gem_init(mrb); */
   /* GENERATED_TMP_mrb_mruby_kernel_ext_gem_init(mrb); */
+  mrb_mruby_require_gem_init(mrb);
   mrb_state_atexit(mrb, mrb_final_mrbgems);
 }
