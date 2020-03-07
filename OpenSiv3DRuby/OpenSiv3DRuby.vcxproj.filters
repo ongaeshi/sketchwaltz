@@ -49,6 +49,9 @@
     <Filter Include="Source Files\mruby\mruby-fiber">
       <UniqueIdentifier>{82eb3040-7841-4932-a5a5-743aeae86849}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\mruby\mruby-require">
+      <UniqueIdentifier>{374e06dd-7dda-4210-bb80-eb4cdf41af97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -230,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="MrbHSV.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mruby\mrbgems\mruby-require\require.c">
+      <Filter>Source Files\mruby\mruby-require</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
