@@ -12,7 +12,7 @@ namespace siv3druby {
 Color Util::ToColor(mrb_state *mrb, mrb_value obj)
 {
     if (mrb_array_p(obj)) {
-        switch (mrb_ary_len(mrb, obj)) {
+        switch (RARRAY_LEN(obj)) {
             case 3:
                 return Color(
                     mrb_int(mrb, mrb_ary_ref(mrb, obj, 0)),
@@ -44,7 +44,7 @@ Color Util::ToColor(mrb_state *mrb, mrb_value obj)
 Vec2 Util::ToVec2(mrb_state *mrb, mrb_value obj)
 {
     if (mrb_array_p(obj)) {
-        switch (mrb_ary_len(mrb, obj)) {
+        switch (RARRAY_LEN(obj)) {
             case 2:
                 return Vec2(
                     mrb_to_flo(mrb, mrb_ary_ref(mrb, obj, 0)),

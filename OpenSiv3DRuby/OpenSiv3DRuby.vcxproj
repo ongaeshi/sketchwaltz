@@ -108,17 +108,28 @@
       </PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)\mruby\include;$(ProjectDir)\mruby\mrbgems\mruby-compiler\core;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\include;</AdditionalIncludeDirectories>
+      <EnforceTypeConversionRules>
+      </EnforceTypeConversionRules>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <OpenMPSupport>
+      </OpenMPSupport>
+      <EnableModules>
+      </EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)external\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Winmm.lib;libmruby.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:MSVCRT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,16 +138,27 @@
       </PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)\mruby\include;$(ProjectDir)\mruby\mrbgems\mruby-compiler\core;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\include;</AdditionalIncludeDirectories>
+      <EnforceTypeConversionRules>
+      </EnforceTypeConversionRules>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <OpenMPSupport>
+      </OpenMPSupport>
+      <EnableModules>
+      </EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)external\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Winmm.lib;libmruby.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,18 +169,29 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)\mruby\include;$(ProjectDir)\mruby\mrbgems\mruby-compiler\core;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\include;</AdditionalIncludeDirectories>
+      <EnforceTypeConversionRules>
+      </EnforceTypeConversionRules>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <OpenMPSupport>
+      </OpenMPSupport>
+      <EnableModules>
+      </EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)external\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libmruby.lib;ws2_32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -169,18 +202,29 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)\mruby\include;$(ProjectDir)\mruby\mrbgems\mruby-compiler\core;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)external\include;</AdditionalIncludeDirectories>
+      <EnforceTypeConversionRules>
+      </EnforceTypeConversionRules>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <OpenMPSupport>
+      </OpenMPSupport>
+      <EnableModules>
+      </EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)external\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Winmm.lib;libmruby.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -205,43 +249,6 @@
     <ClCompile Include="MrbTextureRegion.cpp" />
     <ClCompile Include="MrbTriangle.cpp" />
     <ClCompile Include="MrbVec2.cpp" />
-    <ClCompile Include="mruby\mrbgems\gem_init.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\codegen.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-compiler\core\y.tab.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-fiber\fiber.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-fiber\fiber_gem_init.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-math\math_gem_init.c" />
-    <ClCompile Include="mruby\mrbgems\mruby-math\math.c" />
-    <ClCompile Include="mruby\src\array.c" />
-    <ClCompile Include="mruby\src\backtrace.c" />
-    <ClCompile Include="mruby\src\class.c" />
-    <ClCompile Include="mruby\src\codedump.c" />
-    <ClCompile Include="mruby\src\compar.c" />
-    <ClCompile Include="mruby\src\crc.c" />
-    <ClCompile Include="mruby\src\debug.c" />
-    <ClCompile Include="mruby\src\dump.c" />
-    <ClCompile Include="mruby\src\enum.c" />
-    <ClCompile Include="mruby\src\error.c" />
-    <ClCompile Include="mruby\src\etc.c" />
-    <ClCompile Include="mruby\src\fmt_fp.c" />
-    <ClCompile Include="mruby\src\gc.c" />
-    <ClCompile Include="mruby\src\hash.c" />
-    <ClCompile Include="mruby\src\init.c" />
-    <ClCompile Include="mruby\src\kernel.c" />
-    <ClCompile Include="mruby\src\load.c" />
-    <ClCompile Include="mruby\src\mrblib.c" />
-    <ClCompile Include="mruby\src\numeric.c" />
-    <ClCompile Include="mruby\src\object.c" />
-    <ClCompile Include="mruby\src\pool.c" />
-    <ClCompile Include="mruby\src\print.c" />
-    <ClCompile Include="mruby\src\proc.c" />
-    <ClCompile Include="mruby\src\range.c" />
-    <ClCompile Include="mruby\src\state.c" />
-    <ClCompile Include="mruby\src\string.c" />
-    <ClCompile Include="mruby\src\symbol.c" />
-    <ClCompile Include="mruby\src\variable.c" />
-    <ClCompile Include="mruby\src\version.c" />
-    <ClCompile Include="mruby\src\vm.c" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="__builtin.c" />
   </ItemGroup>
@@ -287,7 +294,6 @@
     <None Include="example\empty.bin" />
     <None Include="example\test.ini" />
     <None Include="example\test.json" />
-    <None Include="mruby\mrbgems\mruby-compiler\core\lex.def" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MrbCamera2D.hpp" />
@@ -311,38 +317,6 @@
     <ClInclude Include="MrbTextureRegion.hpp" />
     <ClInclude Include="MrbTriangle.hpp" />
     <ClInclude Include="MrbVec2.hpp" />
-    <ClInclude Include="mruby\include\mrbconf.h" />
-    <ClInclude Include="mruby\include\mruby.h" />
-    <ClInclude Include="mruby\include\mruby\array.h" />
-    <ClInclude Include="mruby\include\mruby\boxing_nan.h" />
-    <ClInclude Include="mruby\include\mruby\boxing_no.h" />
-    <ClInclude Include="mruby\include\mruby\boxing_word.h" />
-    <ClInclude Include="mruby\include\mruby\class.h" />
-    <ClInclude Include="mruby\include\mruby\common.h" />
-    <ClInclude Include="mruby\include\mruby\compile.h" />
-    <ClInclude Include="mruby\include\mruby\data.h" />
-    <ClInclude Include="mruby\include\mruby\debug.h" />
-    <ClInclude Include="mruby\include\mruby\dump.h" />
-    <ClInclude Include="mruby\include\mruby\error.h" />
-    <ClInclude Include="mruby\include\mruby\gc.h" />
-    <ClInclude Include="mruby\include\mruby\hash.h" />
-    <ClInclude Include="mruby\include\mruby\irep.h" />
-    <ClInclude Include="mruby\include\mruby\khash.h" />
-    <ClInclude Include="mruby\include\mruby\numeric.h" />
-    <ClInclude Include="mruby\include\mruby\object.h" />
-    <ClInclude Include="mruby\include\mruby\opcode.h" />
-    <ClInclude Include="mruby\include\mruby\proc.h" />
-    <ClInclude Include="mruby\include\mruby\range.h" />
-    <ClInclude Include="mruby\include\mruby\re.h" />
-    <ClInclude Include="mruby\include\mruby\string.h" />
-    <ClInclude Include="mruby\include\mruby\throw.h" />
-    <ClInclude Include="mruby\include\mruby\value.h" />
-    <ClInclude Include="mruby\include\mruby\variable.h" />
-    <ClInclude Include="mruby\include\mruby\version.h" />
-    <ClInclude Include="mruby\mrbgems\mruby-compiler\core\node.h" />
-    <ClInclude Include="mruby\src\error.h" />
-    <ClInclude Include="mruby\src\opcode.h" />
-    <ClInclude Include="mruby\src\value_array.h" />
     <ClInclude Include="Util.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

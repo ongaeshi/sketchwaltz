@@ -30,7 +30,7 @@ mrb_value MrbPolygon::initialize(mrb_state *mrb, mrb_value self)
     }
 
     Array<Vec2> outer;
-    for (int i = 0; i < mrb_ary_len(mrb, outer_array); i++) {
+    for (int i = 0; i < RARRAY_LEN(outer_array); i++) {
         outer << Util::ToVec2(mrb, mrb_ary_ref(mrb, outer_array, i));
     }
 
