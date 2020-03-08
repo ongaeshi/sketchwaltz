@@ -1,4 +1,4 @@
-# $ mruby/bin/mrbc.exe -o __builtin.c -B mrb_siv3druby_builtin __builtin.rb
+# $ ../external/bin/mrbc.exe -o __builtin.c -B mrb_siv3druby_builtin __builtin.rb
 
 # mruby-print
 
